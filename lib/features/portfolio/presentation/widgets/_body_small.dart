@@ -34,7 +34,10 @@ class PortfolioBodySmall extends StatelessWidget {
             child: NeumorphismContainer(
               inset: false,
               shape: BoxShape.circle,
-              child: Center(child: Text(MediaQuery.of(context).size.width.toString())),
+              child: const PngImageWidget(
+                name: 'Frame',
+                fit: BoxFit.contain,
+              ),
             ),
           ),
         ],

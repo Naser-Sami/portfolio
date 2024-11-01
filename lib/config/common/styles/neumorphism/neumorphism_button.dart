@@ -20,10 +20,13 @@ class NeumorphismButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
       onHover: (bool val) => onHover!(val),
-      child: SizedBox(
+      child: AnimatedContainer(
         width: 150,
         height: 50,
+        duration: const Duration(milliseconds: 100),
         child: NeumorphismContainer(
           inset: isHovered,
           borderRadius: BorderRadius.circular(12),

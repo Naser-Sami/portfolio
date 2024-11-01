@@ -42,7 +42,7 @@ class PortfolioBodyMedium extends StatelessWidget {
                 ),
               ),
               TSize.s96.toHeight,
-              SizedBox(
+              const SizedBox(
                 width: 350,
                 height: 350,
                 child: NeumorphismContainer(
@@ -115,7 +115,7 @@ class PortfolioBodyMedium extends StatelessWidget {
                         child: NeumorphismContainer(
                           inset: false,
                           borderRadius: BorderRadius.circular(30),
-                          child: PngImageWidget(
+                          child: const PngImageWidget(
                             name: 'image-removebg-preview',
                             fit: BoxFit.contain,
                           ),
