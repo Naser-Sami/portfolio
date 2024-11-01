@@ -67,5 +67,5 @@ class LightThemeColors {
   static const surfaceBright = Color(0xFFFEF7FF);
 
   static const text = Color(0xFF000000);
-  static const red = Color(0xFFFF6363);
+  static const red = Color(0xFFD32D20);
 }

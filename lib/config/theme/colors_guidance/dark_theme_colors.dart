@@ -67,5 +67,5 @@ class DarkThemeColors {
   static const surfaceBright = Color(0xFF3B383E);
 
   static const text = Color(0xFFFFFFFF);
-  static const red = Color(0xFFFF6363);
+  static const red = Color(0xFFD32D20);
 }
