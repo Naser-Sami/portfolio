@@ -48,7 +48,10 @@ class PortfolioBodyMedium extends StatelessWidget {
                 child: NeumorphismContainer(
                   inset: false,
                   shape: BoxShape.circle,
-                  child: Center(child: Text(MediaQuery.of(context).size.width.toString())),
+                  child: PngImageWidget(
+                    name: 'Frame',
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
               TSize.s55.toHeight,
@@ -99,6 +102,78 @@ class PortfolioBodyMedium extends StatelessWidget {
                     onHover: (bool val) {},
                   ),
                 ],
+              ),
+              TSize.s143.toHeight,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: TDeviceUtils.getScreenWidth() * 0.05),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: SizedBox(
+                        // width: 350,
+                        height: 350,
+                        child: NeumorphismContainer(
+                          inset: false,
+                          borderRadius: BorderRadius.circular(30),
+                          child: PngImageWidget(
+                            name: 'image-removebg-preview',
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                    ),
+                    TSize.s48.toWidth,
+                    Expanded(
+                      child: Column(
+                        children: [
+                          NeumorphismContainer(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: "Name*",
+                                  hintStyle: Theme.of(context).textTheme.labelLarge,
+                                ),
+                              ),
+                            ),
+                          ),
+                          TSize.s24.toHeight,
+                          NeumorphismContainer(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: "Email ID*",
+                                  hintStyle: Theme.of(context).textTheme.labelLarge,
+                                ),
+                              ),
+                            ),
+                          ),
+                          TSize.s24.toHeight,
+                          NeumorphismContainer(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+                              child: TextFormField(
+                                minLines: 6,
+                                maxLines: null,
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: "Message*",
+                                  hintStyle: Theme.of(context).textTheme.labelLarge,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
               TSize.s143.toHeight,
             ],
