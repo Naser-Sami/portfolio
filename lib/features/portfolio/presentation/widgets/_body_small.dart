@@ -1,28 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/utils/extensions/extensions_on_widgets.dart';
 
+import '/core/_core.dart';
 import '/config/_config.dart';
-
-class PortfolioBody extends StatelessWidget {
-  const PortfolioBody({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      endDrawer: const Drawer(),
-      body: const SafeArea(
-        child: NeumorphismContainer(
-          child: ResponsiveLayout(
-            smallLayout: PortfolioBodySmall(),
-            mediumLayout: Center(child: Text('Medium Layout')),
-            largeLayout: Center(child: Text('Large Layout')),
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 class PortfolioBodySmall extends StatelessWidget {
   const PortfolioBodySmall({super.key});
@@ -30,7 +9,7 @@ class PortfolioBodySmall extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.all(24.0),
       child: ListView(
         shrinkWrap: true,
         children: [

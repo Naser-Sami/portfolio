@@ -10,26 +10,29 @@ class NeumorphismContainer extends StatelessWidget {
     this.inset = true,
     this.shape = BoxShape.rectangle,
     this.borderRadius,
+    this.userDefaultMargin = false,
   });
 
   final Widget? child;
-  final bool inset;
   final BoxShape shape;
   final BorderRadiusGeometry? borderRadius;
+  final bool inset, userDefaultMargin;
 
   @override
   Widget build(BuildContext context) {
-    EdgeInsetsGeometry margin() {
+    TDeviceUtils.context = context;
+
+    EdgeInsetsGeometry? margin() {
+      if (!userDefaultMargin) return null;
+
       if (TDeviceUtils.isSmallOrPhysicalDevice()) {
-        return const EdgeInsets.symmetric(horizontal: 24, vertical: 24);
+        return const EdgeInsets.all(24);
       } else {
-        return const EdgeInsets.symmetric(horizontal: 80, vertical: 50);
+        return const EdgeInsets.all(48);
       }
     }
 
     return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
       margin: margin(),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,

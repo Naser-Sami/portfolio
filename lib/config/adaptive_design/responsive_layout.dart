@@ -1,4 +1,3 @@
-// Package
 import 'package:flutter/material.dart';
 import '/core/_core.dart';
 
@@ -18,23 +17,24 @@ class ResponsiveLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints bc) {
-        switch (bc.maxWidth) {
-          case >= TDeviceUtils.layout4K:
-            return layout4K ?? largeLayout;
-          case >= TDeviceUtils.largeLayout:
-            return largeLayout;
-          case > TDeviceUtils.smallLayout:
-            return mediumLayout;
-          case <= TDeviceUtils.smallLayout:
-            return smallLayout;
+    final width = MediaQuery.of(context).size.width;
 
-          default:
-            return const SizedBox(child: Text('NO Layout available!'));
-        }
-      },
-    );
+    switch (width) {
+      case >= TDeviceUtils.layout4K:
+        return layout4K ?? largeLayout;
+
+      case >= TDeviceUtils.largeLayout:
+        return largeLayout;
+
+      case >= TDeviceUtils.mediumLayout || > TDeviceUtils.smallLayout:
+        return mediumLayout;
+
+      case <= TDeviceUtils.smallLayout:
+        return smallLayout;
+
+      default:
+        return const SizedBox(child: Text('No Layout available!'));
+    }
   }
 }
 

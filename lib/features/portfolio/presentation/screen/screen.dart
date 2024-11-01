@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'body.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class PortfolioPage extends StatelessWidget {
+  const PortfolioPage({super.key});
 
   @override
   Widget build(BuildContext context) {

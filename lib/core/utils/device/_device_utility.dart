@@ -14,9 +14,9 @@ class TDeviceUtils {
   static const layout4K = 2560;
   static const largeLayout = 1024;
   static const mediumLayout = 768;
-  static const smallLayout = 425;
+  static const smallLayout = 540;
 
-  static final context = NavigationService.navigatorKey.currentContext!;
+  static BuildContext context = NavigationService.navigatorKey.currentContext!;
 
   static final size = MediaQuery.of(context).size;
 
@@ -52,7 +52,7 @@ class TDeviceUtils {
 
   static bool isPhysicalDevice() => defaultTargetPlatform == TargetPlatform.android || defaultTargetPlatform == TargetPlatform.iOS;
 
-  static bool isSmallLayout() => getScreenWidth() < mediumLayout;
+  static bool isSmallLayout() => getScreenWidth() <= smallLayout;
 
   static bool isMediumLayout() => getScreenWidth() < largeLayout;
 

@@ -12,9 +12,9 @@ final router = GoRouter(
   errorBuilder: (context, state) => ErrorPage(state.error.toString()),
   routes: [
     GoRoute(
-      name: 'home',
+      name: 'portfolio',
       path: '/',
-      pageBuilder: (context, state) => fadeTransitionPage(context, state, const HomePage()),
+      pageBuilder: (context, state) => fadeTransitionPage(context, state, const PortfolioPage()),
       redirect: (context, state) {
         return null;
       },
