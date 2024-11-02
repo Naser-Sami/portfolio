@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -5,6 +6,33 @@ part 'portfolio_state.dart';
 
 class PortfolioCubit extends Cubit<PortfolioState> {
   PortfolioCubit() : super(const PortfolioState(headerData: []));
+
+  final scrollController = ScrollController();
+  final List<GlobalKey> sectionKeys = [
+    GlobalKey(), // For HeaderTabsWidget
+    GlobalKey(), // For WhoIAmMediumLayout
+    GlobalKey(), // For AboutMeWidget
+    GlobalKey(), // For ContactMeWidget
+  ];
+
+  // Method to scroll to a specific section
+  void scrollToSection(int index) {
+    if (index < sectionKeys.length && sectionKeys[index].currentContext != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        // Get the widget's render box
+        RenderBox renderBox = sectionKeys[index].currentContext!.findRenderObject() as RenderBox;
+        // Calculate the position relative to the scrollable area
+        double position = scrollController.offset + renderBox.localToGlobal(Offset.zero).dy - scrollController.position.pixels;
+
+        // Scroll to the calculated position
+        scrollController.animateTo(
+          position - 143,
+          duration: const Duration(seconds: 1),
+          curve: Curves.linear,
+        );
+      });
+    }
+  }
 
   void fillInitialHeaderData() {
     List<HeaderData> newData = [];

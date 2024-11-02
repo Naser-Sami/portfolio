@@ -8,6 +8,8 @@ class ContactMeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('Contact Me Widget');
+
     final widthCondition = MediaQuery.of(context).size.width < 1100;
     final width = MediaQuery.of(context).size.width;
 

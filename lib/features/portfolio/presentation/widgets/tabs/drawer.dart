@@ -58,7 +58,12 @@ class EndDrawerWidget extends StatelessWidget {
                         child: NeumorphismButton(
                           isHovered: data.isHovered,
                           text: data.title,
-                          onTap: () {},
+                          onTap: () {
+                            WidgetsBinding.instance.addPostFrameCallback((_) {
+                              context.read<PortfolioCubit>().scrollToSection(data.id);
+                              Navigator.pop(context);
+                            });
+                          },
                         ),
                       );
                     },

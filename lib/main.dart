@@ -5,7 +5,7 @@ import 'package:url_strategy/url_strategy.dart';
 
 import 'bloc_providers.dart';
 
-void main() {
+Future<void> main() async {
   // -- Add Widgets Binding
   WidgetsFlutterBinding.ensureInitialized();
 
