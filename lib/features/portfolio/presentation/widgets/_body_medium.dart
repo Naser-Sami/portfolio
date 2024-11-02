@@ -21,6 +21,8 @@ class PortfolioBodyMedium extends StatelessWidget {
             TSize.s96.toHeight,
             const WhoIAmMediumLayout(),
             TSize.s143.toHeight,
+            const AboutMeWidget(),
+            TSize.s143.toHeight,
             const ContactMeWidget(),
             TSize.s143.toHeight,
           ],

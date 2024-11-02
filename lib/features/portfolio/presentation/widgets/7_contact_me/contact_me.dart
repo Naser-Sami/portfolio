@@ -8,8 +8,8 @@ class ContactMeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final widthCondition = (TDeviceUtils.isSmallOrPhysicalDevice() || MediaQuery.of(context).size.width < 1100);
-    final width = TDeviceUtils.getScreenWidth();
+    final widthCondition = MediaQuery.of(context).size.width < 1100;
+    final width = MediaQuery.of(context).size.width;
 
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: widthCondition ? width * 0.10 : width * 0.15),

@@ -18,6 +18,8 @@ class PortfolioBodySmall extends StatelessWidget {
           TSize.s16.toHeight,
           const WhoIAmSmallLayout(),
           TSize.s143.toHeight,
+          const AboutMeWidget(),
+          TSize.s143.toHeight,
           const ContactMeWidget(),
           TSize.s143.toHeight,
         ],
