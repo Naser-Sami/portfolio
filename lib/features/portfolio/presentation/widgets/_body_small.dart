@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '/core/_core.dart';
 import '/config/_config.dart';
+import '/features/_features.dart';
 
 class PortfolioBodySmall extends StatelessWidget {
   const PortfolioBodySmall({super.key});
@@ -9,37 +10,16 @@ class PortfolioBodySmall extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(24.0),
+      padding: const EdgeInsets.only(top: 24),
       child: ListView(
         shrinkWrap: true,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              SizedBox(
-                width: 45,
-                height: 45,
-                child: FloatingActionButton(
-                  onPressed: () => Scaffold.of(context).openEndDrawer(),
-                  tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-                  child: const Icon(Icons.menu),
-                ),
-              ),
-            ],
-          ),
+          const PortfolioEndDrawer(),
           TSize.s16.toHeight,
-          SizedBox(
-            width: 180,
-            height: 180,
-            child: NeumorphismContainer(
-              inset: false,
-              shape: BoxShape.circle,
-              child: const PngImageWidget(
-                name: 'Frame',
-                fit: BoxFit.contain,
-              ),
-            ),
-          ),
+          const WhoIAmSmallLayout(),
+          TSize.s143.toHeight,
+          const ContactMeWidget(),
+          TSize.s143.toHeight,
         ],
       ),
     );
