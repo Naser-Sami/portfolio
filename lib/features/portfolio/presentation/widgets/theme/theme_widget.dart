@@ -9,34 +9,38 @@ class ThemeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    if (TDeviceUtils.isSmallOrPhysicalDevice()) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          for (int i = 0; i < ThemeStyle.values.length; i++)
+            IconButton(
+              tooltip: ThemeStyle.values[i].name.toCapitalized,
+              onPressed: () => context.read<ThemeCubit>().switchTheme(ThemeStyle.values[i]),
+              icon: SvgIconWidget(
+                name: '${ThemeStyle.values[i].name}_theme',
+                fit: BoxFit.cover,
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
+            ),
+        ],
+      );
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        IconButton(
-          tooltip: 'System',
-          onPressed: () => context.read<ThemeCubit>().switchTheme(ThemeStyle.system),
-          icon: SvgIconWidget(
-            name: 'system_theme',
-            fit: BoxFit.cover,
-            color: Theme.of(context).colorScheme.onSurface,
+        for (int i = 0; i < ThemeStyle.values.length; i++)
+          IconButton(
+            tooltip: ThemeStyle.values[i].name.toCapitalized,
+            onPressed: () => context.read<ThemeCubit>().switchTheme(ThemeStyle.values[i]),
+            icon: SvgIconWidget(
+              name: '${ThemeStyle.values[i].name}_theme',
+              fit: BoxFit.cover,
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
           ),
-        ),
-        IconButton(
-          tooltip: 'Dark',
-          onPressed: () => context.read<ThemeCubit>().switchTheme(ThemeStyle.dark),
-          icon: SvgIconWidget(
-            name: 'dark_theme',
-            color: Theme.of(context).colorScheme.onSurface,
-          ),
-        ),
-        IconButton(
-          tooltip: 'Light',
-          onPressed: () => context.read<ThemeCubit>().switchTheme(ThemeStyle.light),
-          icon: SvgIconWidget(
-            name: 'light_theme',
-            color: Theme.of(context).colorScheme.onSurface,
-          ),
-        ),
       ],
     );
   }

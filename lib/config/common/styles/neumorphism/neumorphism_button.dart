@@ -29,7 +29,7 @@ class NeumorphismButton extends StatelessWidget {
         duration: const Duration(milliseconds: 100),
         child: NeumorphismContainer(
           inset: isHovered,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(24),
           child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: Center(

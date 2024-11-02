@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return BlocBuilder<ThemeCubit, ThemeMode>(
       builder: (context, state) {
         return MaterialApp.router(
-          title: 'M.Y  P.O.R.T.F.O.L.I.O',
+          title: 'P.O.R.T.F.O.L.I.O',
           debugShowCheckedModeBanner: false,
           themeMode: state,
           theme: lightTheme,

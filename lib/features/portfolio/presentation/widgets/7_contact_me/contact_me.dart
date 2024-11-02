@@ -21,14 +21,12 @@ class ContactMeWidget extends StatelessWidget {
                 const ContactMeFormWidget(),
               ],
             )
-          : Expanded(
-              child: Row(
-                children: [
-                  const Expanded(child: ContactMeImageWidget()),
-                  TSize.s48.toWidth,
-                  const Expanded(child: ContactMeFormWidget()),
-                ],
-              ),
+          : Row(
+              children: [
+                const Expanded(child: ContactMeImageWidget()),
+                TSize.s48.toWidth,
+                const Expanded(child: ContactMeFormWidget()),
+              ],
             ),
     );
   }

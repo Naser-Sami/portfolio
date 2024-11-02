@@ -12,9 +12,9 @@ class TDeviceUtils {
   TDeviceUtils._();
 
   static const layout4K = 2560;
-  static const largeLayout = 1024;
-  static const mediumLayout = 768;
-  static const smallLayout = 540;
+  static const largeLayout = 1124;
+  static const mediumLayout = 868;
+  static const smallLayout = 650;
 
   static BuildContext context = NavigationService.navigatorKey.currentContext!;
 
