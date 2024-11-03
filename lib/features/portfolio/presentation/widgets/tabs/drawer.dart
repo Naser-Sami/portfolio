@@ -36,7 +36,6 @@ class EndDrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isHover = false;
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(TPadding.p48),
@@ -74,7 +73,7 @@ class EndDrawerWidget extends StatelessWidget {
                           text: data.title,
                           onTap: () {
                             WidgetsBinding.instance.addPostFrameCallback((_) {
-                              context.read<PortfolioCubit>().scrollToSection(data.id);
+                              context.read<PortfolioCubit>().scrollToSection(data.widgetId);
                               Navigator.pop(context);
                             });
                           },

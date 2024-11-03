@@ -23,7 +23,7 @@ class HeaderTabsWidget extends StatelessWidget {
               (e) => NeumorphismButton(
                 isHovered: e.isHovered,
                 text: e.title,
-                onTap: () => context.read<PortfolioCubit>().scrollToSection(e.id),
+                onTap: () => context.read<PortfolioCubit>().scrollToSection(e.widgetId),
                 onHover: (bool val) => context.read<PortfolioCubit>().onButtonHover(e.id, val),
               ),
             )

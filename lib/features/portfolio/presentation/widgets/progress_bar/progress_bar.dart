@@ -30,7 +30,7 @@ class ProgressBarWidget extends StatelessWidget {
             alignment: AlignmentDirectional.centerStart,
             children: [
               Container(
-                width: MediaQuery.of(context).size.width * 0.50,
+                width: MediaQuery.of(context).size.width * 0.45,
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.primary,
                   borderRadius: BorderRadius.circular(4),

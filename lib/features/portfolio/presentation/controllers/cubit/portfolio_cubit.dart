@@ -39,13 +39,11 @@ class PortfolioCubit extends Cubit<PortfolioState> {
 
   void fillInitialHeaderData() {
     List<HeaderData> newData = [];
-    List<String> titles = ['Contact', 'Resume', 'About', 'Certificate', 'Projects'];
-    List<int> titlesIds = [
-      0,
-    ];
+    List<String> titles = ['Contact', 'Resume', 'About', 'Certificate', 'Projects', 'Experience', 'Skills'];
+    List<int> titlesIds = [6, 0, 1, 4, 2, 5, 3];
 
     for (int x = 0; x < titles.length; x++) {
-      newData.add(HeaderData(x, x, titles[x], false));
+      newData.add(HeaderData(x, titlesIds[x], titles[x], false));
     }
 
     emit(state.copyWith(headerData: newData));
