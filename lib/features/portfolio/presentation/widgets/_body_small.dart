@@ -10,19 +10,30 @@ class PortfolioBodySmall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<PortfolioCubit>();
+    final key = cubit.sectionKeys;
+
     return Padding(
       padding: const EdgeInsets.only(top: 24),
       child: SingleChildScrollView(
-        controller: context.read<PortfolioCubit>().scrollController,
+        controller: cubit.scrollController,
         child: Column(
           children: [
-            PortfolioEndDrawer(key: context.read<PortfolioCubit>().sectionKeys[0]),
+            const PortfolioEndDrawer(),
             TSize.s16.toHeight,
-            WhoIAmSmallLayout(key: context.read<PortfolioCubit>().sectionKeys[1]),
+            WhoIAmSmallLayout(key: key[1]),
             TSize.s143.toHeight,
-            AboutMeWidget(key: context.read<PortfolioCubit>().sectionKeys[2]),
+            AboutMeWidget(key: key[2]),
             TSize.s143.toHeight,
-            ContactMeWidget(key: context.read<PortfolioCubit>().sectionKeys[3]),
+            ProjectsWidget(key: key[4]),
+            TSize.s143.toHeight,
+            SkillsWidget(key: key[5]),
+            TSize.s143.toHeight,
+            CertificationsWidget(key: key[6]),
+            TSize.s143.toHeight,
+            ExperienceWidget(key: key[3]),
+            TSize.s143.toHeight,
+            ContactMeWidget(key: key[0]),
             TSize.s143.toHeight,
           ],
         ),

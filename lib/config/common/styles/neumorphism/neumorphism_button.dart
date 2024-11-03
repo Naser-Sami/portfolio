@@ -22,6 +22,7 @@ class NeumorphismButton extends StatelessWidget {
       onTap: onTap,
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
+      hoverColor: Colors.transparent,
       onHover: (bool val) => onHover!(val),
       child: AnimatedContainer(
         width: 150,

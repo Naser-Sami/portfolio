@@ -10,22 +10,30 @@ class PortfolioBodyMedium extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final widthCondition = MediaQuery.of(context).size.width < 1000;
+    final cubit = context.read<PortfolioCubit>();
+    final key = cubit.sectionKeys;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 48.0),
       child: ScrollConfiguration(
         behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
         child: SingleChildScrollView(
-          controller: context.read<PortfolioCubit>().scrollController,
+          controller: cubit.scrollController,
           child: Column(
             children: [
               TSize.s48.toHeight,
-              HeaderTabsWidget(key: context.read<PortfolioCubit>().sectionKeys[0]),
+              widthCondition ? const PortfolioEndDrawer() : const HeaderTabsWidget(),
               TSize.s96.toHeight,
-              WhoIAmMediumLayout(key: context.read<PortfolioCubit>().sectionKeys[1]),
+              WhoIAmMediumLayout(key: key[1]),
               TSize.s143.toHeight,
-              AboutMeWidget(key: context.read<PortfolioCubit>().sectionKeys[2]), // Index 2
+              AboutMeWidget(key: key[2]),
               TSize.s143.toHeight,
-              ContactMeWidget(key: context.read<PortfolioCubit>().sectionKeys[3]), // Index 3
+              ProjectsWidget(key: key[4]),
+              TSize.s143.toHeight,
+              SkillsWidget(key: key[3]),
+              TSize.s143.toHeight,
+              ContactMeWidget(key: key[0]),
               TSize.s143.toHeight,
             ],
           ),

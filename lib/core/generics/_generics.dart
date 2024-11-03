@@ -50,3 +50,19 @@ T genericMethod<T>(T value) {
   print("Double: ${genericMethod<double>(10.5)}");
   print("String: ${genericMethod<String>("Hello")}");
 */
+
+class Repository<T> {
+  final List<T> _dataStore = [];
+
+  void add(T item) => _dataStore.add(item);
+
+  List<T> getAll() => _dataStore;
+
+  T? getByIndex(int index) {
+    if (index < 0 || index >= _dataStore.length) {
+      return null;
+    }
+
+    return _dataStore[index];
+  }
+}

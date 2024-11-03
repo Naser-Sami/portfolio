@@ -9,7 +9,8 @@ class ThemeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (TDeviceUtils.isSmallOrPhysicalDevice()) {
+    final widthCondition = MediaQuery.of(context).size.width < 1000;
+    if (widthCondition) {
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

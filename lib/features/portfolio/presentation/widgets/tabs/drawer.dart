@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -35,6 +36,7 @@ class EndDrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isHover = false;
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(TPadding.p48),
@@ -51,6 +53,18 @@ class EndDrawerWidget extends StatelessWidget {
                   return BlocBuilder<PortfolioCubit, PortfolioState>(
                     builder: (context, state) {
                       final data = state.headerData[index];
+
+                      if (kIsWeb) {
+                        return NeumorphismButton(
+                          isHovered: data.isHovered,
+                          text: data.title,
+                          onTap: () {
+                            context.read<PortfolioCubit>().scrollToSection(data.id);
+                            Navigator.pop(context);
+                          },
+                          onHover: (bool val) => context.read<PortfolioCubit>().onButtonHover(data.id, val),
+                        );
+                      }
 
                       return Listener(
                         onPointerUp: (event) => context.read<PortfolioCubit>().onButtonHover(data.id, false),

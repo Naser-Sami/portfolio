@@ -9,10 +9,13 @@ class PortfolioCubit extends Cubit<PortfolioState> {
 
   final scrollController = ScrollController();
   final List<GlobalKey> sectionKeys = [
-    GlobalKey(), // For HeaderTabsWidget
-    GlobalKey(), // For WhoIAmMediumLayout
-    GlobalKey(), // For AboutMeWidget
-    GlobalKey(), // For ContactMeWidget
+    GlobalKey(), // For
+    GlobalKey(), // For
+    GlobalKey(), // For
+    GlobalKey(), // For
+    GlobalKey(), // For
+    GlobalKey(), // For
+    GlobalKey(), // For
   ];
 
   // Method to scroll to a specific section
@@ -37,9 +40,12 @@ class PortfolioCubit extends Cubit<PortfolioState> {
   void fillInitialHeaderData() {
     List<HeaderData> newData = [];
     List<String> titles = ['Contact', 'Resume', 'About', 'Certificate', 'Projects'];
+    List<int> titlesIds = [
+      0,
+    ];
 
     for (int x = 0; x < titles.length; x++) {
-      newData.add(HeaderData(x, titles[x], false));
+      newData.add(HeaderData(x, x, titles[x], false));
     }
 
     emit(state.copyWith(headerData: newData));

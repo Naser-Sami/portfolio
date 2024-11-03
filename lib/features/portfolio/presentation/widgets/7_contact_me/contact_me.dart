@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 
 import '/core/_core.dart';
 import '/config/_config.dart';
+import '/features/_features.dart';
 
 class ContactMeWidget extends StatelessWidget {
   const ContactMeWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    print('Contact Me Widget');
-
     final widthCondition = MediaQuery.of(context).size.width < 1100;
     final width = MediaQuery.of(context).size.width;
 
@@ -18,16 +17,22 @@ class ContactMeWidget extends StatelessWidget {
       child: widthCondition
           ? Column(
               children: [
+                const ProgressBarWidget(title: "Contact Me", titleEnd: false),
                 const ContactMeImageWidget(),
                 TSize.s48.toHeight,
                 const ContactMeFormWidget(),
               ],
             )
-          : Row(
+          : Column(
               children: [
-                const Expanded(child: ContactMeImageWidget()),
-                TSize.s48.toWidth,
-                const Expanded(child: ContactMeFormWidget()),
+                const ProgressBarWidget(title: "Contact Me", titleEnd: false),
+                Row(
+                  children: [
+                    const Expanded(child: ContactMeImageWidget()),
+                    TSize.s48.toWidth,
+                    const Expanded(child: ContactMeFormWidget()),
+                  ],
+                ),
               ],
             ),
     );

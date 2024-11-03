@@ -15,17 +15,20 @@ class PortfolioState extends Equatable {
 
 class HeaderData {
   int id;
+  int widgetId;
   String title;
   bool isHovered;
-  HeaderData(this.id, this.title, this.isHovered);
+  HeaderData(this.id, this.widgetId, this.title, this.isHovered);
 
   HeaderData copyWith({
     int? id,
+    int? widgetId,
     String? title,
     bool? isHovered,
   }) =>
       HeaderData(
         id ?? this.id,
+        widgetId ?? this.widgetId,
         title ?? this.title,
         isHovered ?? this.isHovered,
       );

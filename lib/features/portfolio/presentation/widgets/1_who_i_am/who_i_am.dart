@@ -12,19 +12,21 @@ class WhoIAmMediumLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final widthCondition = MediaQuery.of(context).size.width < 1000;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Row(
+        Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
               width: 50,
-              child: ThemeWidget(),
+              child: widthCondition ? null : const ThemeWidget(),
             ),
-            WhoIAmImage(width: 350, height: 350),
-            SizedBox(width: 50),
+            const WhoIAmImage(width: 350, height: 350),
+            const SizedBox(width: 50),
           ],
         ),
         TSize.s55.toHeight,

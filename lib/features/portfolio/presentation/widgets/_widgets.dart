@@ -3,6 +3,7 @@ export '_body_medium.dart';
 export '_body_small.dart';
 export 'tabs/_tabs.dart';
 export 'theme/theme_widget.dart';
+export 'progress_bar/progress_bar.dart';
 
 export '1_who_i_am/who_i_am.dart';
 export '2_about_me/about_me.dart';
