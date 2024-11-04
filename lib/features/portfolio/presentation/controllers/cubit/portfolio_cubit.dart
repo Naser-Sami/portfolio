@@ -8,15 +8,7 @@ class PortfolioCubit extends Cubit<PortfolioState> {
   PortfolioCubit() : super(const PortfolioState(headerData: []));
 
   final scrollController = ScrollController();
-  final List<GlobalKey> sectionKeys = [
-    GlobalKey(), // For
-    GlobalKey(), // For
-    GlobalKey(), // For
-    GlobalKey(), // For
-    GlobalKey(), // For
-    GlobalKey(), // For
-    GlobalKey(), // For
-  ];
+  final List<GlobalKey> sectionKeys = [GlobalKey(), GlobalKey(), GlobalKey(), GlobalKey(), GlobalKey(), GlobalKey(), GlobalKey()];
 
   // Method to scroll to a specific section
   void scrollToSection(int index) {
@@ -59,4 +51,16 @@ class PortfolioCubit extends Cubit<PortfolioState> {
 
     emit(state.copyWith(headerData: updatedHeaderData)); // Emit a new state with updated data
   }
+
+  ScrollController carouselController = ScrollController();
+  List<String> certificates = [
+    'Flutter_Clean_Architecture_Certificate',
+    'pioneers_academy_certificate_1',
+    'pioneers_academy_certificate_2',
+    'pioneers_academy_certificate_3',
+    'pioneers_academy_certificate_4',
+    'pioneers_academy_certificate_5',
+    'pioneers_academy_certificate_6',
+    'pioneers_academy_certificate_7',
+  ];
 }

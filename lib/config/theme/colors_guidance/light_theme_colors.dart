@@ -48,7 +48,7 @@ class LightThemeColors {
 
   static const inverseSurface = Color(0xFF322F35);
   static const inverseOnSurface = Color(0xFFF5EFF7);
-  static const inversePrimary = Color(0xFFD0BCFF);
+  static const inversePrimary = Color(0xFFF7A21E);
 
   static const shadow = Color(0xFFA7A9AF);
 

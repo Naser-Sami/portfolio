@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PngImageWidget extends StatelessWidget {
-  const PngImageWidget({
+class JpgImageWidget extends StatelessWidget {
+  const JpgImageWidget({
     super.key,
     required this.name,
     this.width,
@@ -17,7 +17,7 @@ class PngImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      'assets/images/$name.png',
+      'assets/images/$name.jpg',
       width: width ?? 24,
       height: height ?? 24,
       fit: fit,
@@ -25,9 +25,9 @@ class PngImageWidget extends StatelessWidget {
   }
 }
 
-DecorationImage? pngImage({required String name, BoxFit? fit}) => DecorationImage(
+DecorationImage? jpgImage({required String name, BoxFit? fit}) => DecorationImage(
       image: AssetImage(
-        'assets/images/$name.png',
+        'assets/images/$name.jpg',
       ),
       fit: fit,
     );

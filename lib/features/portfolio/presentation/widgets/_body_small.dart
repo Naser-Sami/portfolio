@@ -30,7 +30,7 @@ class PortfolioBodySmall extends StatelessWidget {
             SkillsWidget(key: key[3]),
             TSize.s143.toHeight,
             CertificationsWidget(key: key[4]),
-            TSize.s143.toHeight,
+            TSize.s96.toHeight,
             ExperienceWidget(key: key[5]),
             TSize.s143.toHeight,
             ContactMeWidget(key: key[6]),

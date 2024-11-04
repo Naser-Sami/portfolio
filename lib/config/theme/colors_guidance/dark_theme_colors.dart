@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class DarkThemeColors {
   DarkThemeColors._();
 
-  static const primary = Color(0xFFD0BCFF);
+  static const primary = Color(0xFF7733FF);
   static const onPrimary = Color(0xFF381E72);
   static const primaryContainer = Color(0xFF4F378B);
   static const onPrimaryContainer = Color(0xFFEADDFF);
@@ -49,7 +49,7 @@ class DarkThemeColors {
 
   static const inverseSurface = Color(0xFFE6E0E9);
   static const inverseOnSurface = Color(0xFF322F35);
-  static const inversePrimary = Color(0xFF6750A4);
+  static const inversePrimary = Color(0xFFF7A21E);
 
   static const shadow = Color(0xFF000000);
 
