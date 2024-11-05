@@ -53,7 +53,7 @@ class EndDrawerWidget extends StatelessWidget {
                     builder: (context, state) {
                       final data = state.headerData[index];
 
-                      if (kIsWeb) {
+                      if (kIsWeb || TDeviceUtils.isDesktop()) {
                         return NeumorphismButton(
                           isHovered: data.isHovered,
                           text: data.title,

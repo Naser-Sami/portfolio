@@ -86,6 +86,12 @@ class TDeviceUtils {
   }
 
   static bool isIOS() => Platform.isIOS;
-
   static bool isAndroid() => Platform.isAndroid;
+  static bool isMacOS() => Platform.isMacOS;
+  static bool isLinux() => Platform.isLinux;
+  static bool isWindows() => Platform.isWindows;
+  static bool isFuchsia() => Platform.isFuchsia;
+  static int numberOfProcessors() => Platform.numberOfProcessors;
+
+  static bool isDesktop() => (Platform.isMacOS || Platform.isLinux || Platform.isWindows);
 }

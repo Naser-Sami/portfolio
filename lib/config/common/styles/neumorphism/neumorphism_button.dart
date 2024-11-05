@@ -3,18 +3,25 @@ import 'package:flutter/material.dart';
 import '/config/_config.dart';
 
 class NeumorphismButton extends StatelessWidget {
-  const NeumorphismButton({
-    super.key,
-    this.onTap,
-    this.onHover,
-    required this.isHovered,
-    required this.text,
-  });
+  const NeumorphismButton(
+      {super.key,
+      this.onTap,
+      this.onHover,
+      required this.isHovered,
+      required this.text,
+      this.surfaceColor,
+      this.blurRadius = 10,
+      this.textStyle,
+      this.offset = const Offset(5, 5)});
 
   final void Function()? onTap;
   final void Function(bool)? onHover;
   final bool isHovered;
   final String text;
+  final Color? surfaceColor;
+  final double blurRadius;
+  final Offset offset;
+  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +37,9 @@ class NeumorphismButton extends StatelessWidget {
         duration: const Duration(milliseconds: 100),
         child: NeumorphismContainer(
           inset: isHovered,
+          surfaceColor: surfaceColor,
+          blurRadius: blurRadius,
+          offset: offset,
           borderRadius: BorderRadius.circular(24),
           child: Padding(
             padding: const EdgeInsets.all(12.0),
@@ -37,9 +47,10 @@ class NeumorphismButton extends StatelessWidget {
               child: TextWidget(
                 text,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontWeight: isHovered ? FontWeight.bold : null,
-                ),
+                style: textStyle ??
+                    TextStyle(
+                      fontWeight: isHovered ? FontWeight.bold : null,
+                    ),
               ),
             ),
           ),

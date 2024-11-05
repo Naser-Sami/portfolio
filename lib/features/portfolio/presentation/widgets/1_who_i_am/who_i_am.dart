@@ -18,16 +18,19 @@ class WhoIAmMediumLayout extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              width: 50,
-              child: widthCondition ? null : const ThemeWidget(),
-            ),
-            const WhoIAmImage(width: 350, height: 350),
-            const SizedBox(width: 50),
-          ],
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: TPadding.p48),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                width: 50,
+                child: widthCondition ? null : const ThemeWidget(),
+              ),
+              const WhoIAmImage(width: 350, height: 350),
+              const SizedBox(width: 50),
+            ],
+          ),
         ),
         TSize.s55.toHeight,
         const WhoIAmInfo(),

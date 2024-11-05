@@ -42,7 +42,7 @@ class WhoIAmInfo extends StatelessWidget {
         ),
         TSize.s24.toHeight,
         const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.0),
+          padding: EdgeInsets.symmetric(horizontal: TPadding.p48),
           child: TextWidget(
               textAlign: TextAlign.center,
               "A highly motivated student studying Artificial Intelligence and Machine Learning. Actively seeking opportunities to apply my skills and knowledge to real-world projects and contribute to the advancement of the industry."),

@@ -40,12 +40,12 @@ class _CertificateSliderState extends State<CertificateSlider> {
     super.initState();
     _pageController = PageController(
       viewportFraction: TDeviceUtils.isSmallOrPhysicalDevice() || TDeviceUtils.getScreenWidth() < 1100 ? 0.6 : 0.3,
-      initialPage: 2,
+      initialPage: 1,
     ); // Set initialPage
 
     // Ensure the initial page layout is correct by jumping to the initial page after the first frame
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _pageController.jumpToPage(2); // Jump to the initial page to avoid spacing issue
+      _pageController.jumpToPage(1); // Jump to the initial page to avoid spacing issue
     });
   }
 
@@ -74,7 +74,7 @@ class _CertificateSliderState extends State<CertificateSlider> {
       height: widthCondition ? 150 : height * 0.30,
       child: PageView.builder(
         controller: _pageController,
-        itemCount: context.read<PortfolioCubit>().certificates.length,
+        itemCount: CertificatesData.certificates.length,
         itemBuilder: (context, index) {
           return AnimatedBuilder(
             animation: _pageController,
@@ -119,7 +119,7 @@ class CertificateCard extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(24),
           child: JpgImageWidget(
-            name: context.read<PortfolioCubit>().certificates[index],
+            name: CertificatesData.certificates[index],
             fit: BoxFit.fill,
           ),
         ),

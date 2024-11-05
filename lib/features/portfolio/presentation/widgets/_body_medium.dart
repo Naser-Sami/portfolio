@@ -14,33 +14,30 @@ class PortfolioBodyMedium extends StatelessWidget {
     final cubit = context.read<PortfolioCubit>();
     final key = cubit.sectionKeys;
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 48.0),
-      child: ScrollConfiguration(
-        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-        child: SingleChildScrollView(
-          controller: cubit.scrollController,
-          child: Column(
-            children: [
-              TSize.s48.toHeight,
-              widthCondition ? const PortfolioEndDrawer() : const HeaderTabsWidget(),
-              TSize.s96.toHeight,
-              WhoIAmMediumLayout(key: key[0]),
-              TSize.s143.toHeight,
-              AboutMeWidget(key: key[1]),
-              TSize.s143.toHeight,
-              ProjectsWidget(key: key[2]),
-              TSize.s143.toHeight,
-              SkillsWidget(key: key[3]),
-              TSize.s143.toHeight,
-              CertificationsWidget(key: key[4]),
-              TSize.s143.toHeight,
-              ExperienceWidget(key: key[5]),
-              TSize.s143.toHeight,
-              ContactMeWidget(key: key[6]),
-              TSize.s143.toHeight,
-            ],
-          ),
+    return ScrollConfiguration(
+      behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+      child: SingleChildScrollView(
+        controller: cubit.scrollController,
+        child: Column(
+          children: [
+            TSize.s48.toHeight,
+            widthCondition ? const PortfolioEndDrawer() : const HeaderTabsWidget(),
+            TSize.s96.toHeight,
+            WhoIAmMediumLayout(key: key[0]),
+            TSize.s143.toHeight,
+            AboutMeWidget(key: key[1]),
+            TSize.s143.toHeight,
+            ProjectsWidget(key: key[2]),
+            TSize.s143.toHeight,
+            SkillsWidget(key: key[3]),
+            TSize.s143.toHeight,
+            CertificationsWidget(key: key[4]),
+            TSize.s143.toHeight,
+            ExperienceWidget(key: key[5]),
+            TSize.s143.toHeight,
+            ContactMeWidget(key: key[6]),
+            TSize.s143.toHeight,
+          ],
         ),
       ),
     );
