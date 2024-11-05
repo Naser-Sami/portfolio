@@ -69,7 +69,7 @@ class AboutMeInfoWidget extends StatelessWidget {
         TSize.s32.toHeight,
         TextWidget(
           textAlign: widthCondition ? TextAlign.center : TextAlign.start,
-          "I am actively seeking opportunities to apply my acquired skills and knowledge to real-world projects. My educational background has equipped me with a solid foundation in AI and ML algorithms, data analysis, and programming languages such as Python. Additionally, I have gained practical experience through hands-on projects, both independently and collaboratively.",
+          "I am actively seeking opportunities to apply my acquired skills and knowledge to real-world projects. I am currently also student studying Artificial Intelligence and Machine Learning. Actively seeking opportunities to apply my skills and knowledge to real-world projects and contribute to the advancement of the industry.",
         ),
       ],
     );

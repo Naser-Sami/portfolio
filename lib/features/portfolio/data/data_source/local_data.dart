@@ -1,3 +1,42 @@
+class HeaderData {
+  int id;
+  int widgetId;
+  String title;
+  bool isHovered;
+  HeaderData(this.id, this.widgetId, this.title, this.isHovered);
+
+  HeaderData copyWith({
+    int? id,
+    int? widgetId,
+    String? title,
+    bool? isHovered,
+  }) =>
+      HeaderData(
+        id ?? this.id,
+        widgetId ?? this.widgetId,
+        title ?? this.title,
+        isHovered ?? this.isHovered,
+      );
+}
+
+class SkillsData {
+  int id;
+  String title;
+  bool isHovered;
+  SkillsData(this.id, this.title, this.isHovered);
+
+  SkillsData copyWith({
+    int? id,
+    String? title,
+    bool? isHovered,
+  }) =>
+      SkillsData(
+        id ?? this.id,
+        title ?? this.title,
+        isHovered ?? this.isHovered,
+      );
+}
+
 class CertificatesData {
   static List<String> certificates = [
     'Flutter-Advanced-Course-Bloc-MVVM',
@@ -60,6 +99,7 @@ class ProjectsDataModel {
   final int id;
   final String language;
   List<ProjectsDataSubModel> data;
+
   ProjectsDataModel({required this.id, required this.language, required this.data});
 }
 
@@ -70,6 +110,7 @@ class ProjectsDataSubModel {
   final String gitHubLink;
   final String urlLink;
   final String image;
+
   ProjectsDataSubModel({
     required this.id,
     required this.name,

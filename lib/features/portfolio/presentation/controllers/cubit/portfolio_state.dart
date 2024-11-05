@@ -1,35 +1,16 @@
 part of 'portfolio_cubit.dart';
 
 class PortfolioState extends Equatable {
-  const PortfolioState({required this.headerData});
+  const PortfolioState({required this.headerData, required this.skillsData});
 
   final List<HeaderData> headerData;
+  final List<SkillsData> skillsData;
 
-  PortfolioState copyWith({List<HeaderData>? headerData}) => PortfolioState(
+  PortfolioState copyWith({List<HeaderData>? headerData, List<SkillsData>? skillsData}) => PortfolioState(
         headerData: headerData ?? this.headerData,
+        skillsData: skillsData ?? this.skillsData,
       );
 
   @override
-  List<Object> get props => [headerData];
-}
-
-class HeaderData {
-  int id;
-  int widgetId;
-  String title;
-  bool isHovered;
-  HeaderData(this.id, this.widgetId, this.title, this.isHovered);
-
-  HeaderData copyWith({
-    int? id,
-    int? widgetId,
-    String? title,
-    bool? isHovered,
-  }) =>
-      HeaderData(
-        id ?? this.id,
-        widgetId ?? this.widgetId,
-        title ?? this.title,
-        isHovered ?? this.isHovered,
-      );
+  List<Object> get props => [headerData, skillsData];
 }

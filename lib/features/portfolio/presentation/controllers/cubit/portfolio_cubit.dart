@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
+import '/features/portfolio/_portfolio.dart';
+
 part 'portfolio_state.dart';
 
 class PortfolioCubit extends Cubit<PortfolioState> {
-  PortfolioCubit() : super(const PortfolioState(headerData: []));
+  PortfolioCubit()
+      : super(const PortfolioState(
+          headerData: [],
+          skillsData: [],
+        ));
 
   final scrollController = ScrollController();
   final List<GlobalKey> sectionKeys = [GlobalKey(), GlobalKey(), GlobalKey(), GlobalKey(), GlobalKey(), GlobalKey(), GlobalKey()];
@@ -50,5 +56,47 @@ class PortfolioCubit extends Cubit<PortfolioState> {
     }).toList();
 
     emit(state.copyWith(headerData: updatedHeaderData)); // Emit a new state with updated data
+  }
+
+  void fillSkillsData() {
+    List<SkillsData> data = [];
+    List<String> skills = [
+      'Mobile Dev',
+      'Web Dev',
+      'Flutter',
+      'Dart',
+      'Python',
+      'C#',
+      '.Net',
+      'Sql',
+      'BloC',
+      'Provider',
+      'Git',
+      'GitHub',
+      'Dio',
+      'Rest API\'s',
+      'Go-Routes',
+      'Animations',
+      'OOP',
+      'DSA',
+      'S.O.L.I.D'
+    ];
+
+    for (int x = 0; x < skills.length; x++) {
+      data.add(SkillsData(x, skills[x], false));
+    }
+
+    emit(state.copyWith(skillsData: data));
+  }
+
+  void onSkillSHover(int id, bool isHovered) {
+    final updatedData = state.skillsData.map((item) {
+      if (item.id == id) {
+        return item.copyWith(isHovered: isHovered); // Ensure `copyWith` creates a new instance
+      }
+      return item;
+    }).toList();
+
+    emit(state.copyWith(skillsData: updatedData));
   }
 }

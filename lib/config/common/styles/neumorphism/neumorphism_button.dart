@@ -12,6 +12,8 @@ class NeumorphismButton extends StatelessWidget {
       this.surfaceColor,
       this.blurRadius = 10,
       this.textStyle,
+      this.width,
+      this.height,
       this.offset = const Offset(5, 5)});
 
   final void Function()? onTap;
@@ -22,6 +24,8 @@ class NeumorphismButton extends StatelessWidget {
   final double blurRadius;
   final Offset offset;
   final TextStyle? textStyle;
+  final double? width;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +36,8 @@ class NeumorphismButton extends StatelessWidget {
       hoverColor: Colors.transparent,
       onHover: (bool val) => onHover!(val),
       child: AnimatedContainer(
-        width: 150,
-        height: 50,
+        width: width ?? 150,
+        height: height,
         duration: const Duration(milliseconds: 100),
         child: NeumorphismContainer(
           inset: isHovered,
@@ -42,7 +46,7 @@ class NeumorphismButton extends StatelessWidget {
           offset: offset,
           borderRadius: BorderRadius.circular(24),
           child: Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12.0),
             child: Center(
               child: TextWidget(
                 text,

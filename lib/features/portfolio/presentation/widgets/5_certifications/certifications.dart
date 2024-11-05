@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/core/utils/_utils.dart';
 
+import '/core/_core.dart';
 import '/config/_config.dart';
 import '/features/_features.dart';
 
@@ -71,7 +70,7 @@ class _CertificateSliderState extends State<CertificateSlider> {
     }
 
     return SizedBox(
-      height: widthCondition ? 150 : height * 0.30,
+      height: widthCondition ? 190 : height * 0.30,
       child: PageView.builder(
         controller: _pageController,
         itemCount: CertificatesData.certificates.length,
@@ -112,9 +111,9 @@ class CertificateCard extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 0),
       child: SizedBox(
-        height: widthCondition ? 150 : height * 0.30,
+        height: widthCondition ? 190 : height * 0.30,
         width: widthCondition ? width * 0.80 : width * 0.4, // Control width for smaller cards
         child: ClipRRect(
           borderRadius: BorderRadius.circular(24),

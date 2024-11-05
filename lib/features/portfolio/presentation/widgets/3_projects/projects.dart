@@ -36,7 +36,9 @@ class ProjectsWidget extends StatelessWidget {
                         surfaceColor: Theme.of(context).colorScheme.primary,
                         text: ProjectsData.projects[i].language,
                         textStyle: Theme.of(context).textTheme.titleMedium?.apply(color: Colors.white),
-                        onTap: () {},
+                        onTap: () {
+                          print('ON PROJECTS TABS CLICK');
+                        },
                         onHover: (bool val) {},
                       ),
                     )
@@ -92,13 +94,18 @@ class ProjectsVerticalWidget extends StatelessWidget {
         for (int i = 0; i < 3; i++)
           Padding(
             padding: EdgeInsets.only(bottom: i == 2 ? 0 : TPadding.p88),
-            child: const SizedBox(
-              height: 160,
-              width: 160,
-              child: NeumorphismContainer(
-                inset: false,
-                shape: BoxShape.circle,
-                child: FlutterLogo(),
+            child: InkWell(
+              onTap: () {
+                print('ON PROJECTS LIST CLICK');
+              },
+              child: const SizedBox(
+                height: 160,
+                width: 160,
+                child: NeumorphismContainer(
+                  inset: false,
+                  shape: BoxShape.circle,
+                  child: FlutterLogo(),
+                ),
               ),
             ),
           ),
@@ -120,13 +127,18 @@ class ProjectsHorizontalWidget extends StatelessWidget {
           for (int i = 0; i < 3; i++)
             Padding(
               padding: EdgeInsetsDirectional.only(start: i == 0 ? TPadding.p32 : 0, end: i == 2 ? 0 : TPadding.p32),
-              child: const SizedBox(
-                height: 80,
-                width: 80,
-                child: NeumorphismContainer(
-                  inset: false,
-                  shape: BoxShape.circle,
-                  child: FlutterLogo(),
+              child: InkWell(
+                onTap: () {
+                  print('ON PROJECTS LIST CLICK');
+                },
+                child: const SizedBox(
+                  height: 80,
+                  width: 80,
+                  child: NeumorphismContainer(
+                    inset: false,
+                    shape: BoxShape.circle,
+                    child: FlutterLogo(),
+                  ),
                 ),
               ),
             ),
@@ -143,41 +155,48 @@ class ProjectCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
 
-    return SizedBox(
-      height: 570,
-      child: NeumorphismContainer(
-        inset: false,
-        child: Padding(
-          padding: const EdgeInsets.all(TPadding.p24),
-          child: Column(
-            children: [
-              Expanded(
-                child: SizedBox(
-                  width: width,
-                  child: const NeumorphismContainer(
-                    child: FlutterLogo(),
+    return InkWell(
+      onTap: () {
+        print("ON THE SELECTED PROJECT CLICK");
+      },
+      child: SizedBox(
+        height: 570,
+        child: NeumorphismContainer(
+          inset: false,
+          child: Padding(
+            padding: const EdgeInsets.all(TPadding.p24),
+            child: Column(
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    width: width,
+                    child: const NeumorphismContainer(
+                      child: FlutterLogo(),
+                    ),
                   ),
                 ),
-              ),
-              TSize.s20.toHeight,
-              TextWidget(
-                ProjectsData.projects.first.data.first.name,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-              TSize.s20.toHeight,
-              TextWidget(
-                ProjectsData.projects.first.data.first.description,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-              TSize.s24.toHeight,
-              const SizedBox(
-                width: 50,
-                height: 50,
-                child: FlutterLogo(),
-              ),
-            ],
+                TSize.s20.toHeight,
+                TextWidget(
+                  ProjectsData.projects.first.data.first.name,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                TSize.s20.toHeight,
+                TextWidget(
+                  ProjectsData.projects.first.data.first.description,
+                  textAlign: TextAlign.center,
+                  maxLines: 4,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                TSize.s24.toHeight,
+                const SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: FlutterLogo(),
+                ),
+              ],
+            ),
           ),
         ),
       ),

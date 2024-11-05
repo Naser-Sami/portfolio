@@ -45,7 +45,7 @@ class WhoIAmInfo extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: TPadding.p48),
           child: TextWidget(
               textAlign: TextAlign.center,
-              "A highly motivated student studying Artificial Intelligence and Machine Learning. Actively seeking opportunities to apply my skills and knowledge to real-world projects and contribute to the advancement of the industry."),
+              " As a dedicated Flutter developer with 3 years of hands-on experience, I am driven by challenges and continuously strive to advance my skills in software development. I am actively expanding my expertise in C#, .NET, SQL, and Python, with a strong commitment to learning and growth. I am seeking an opportunity within an innovative organization where I can contribute to impactful projects, collaborate with skilled professionals, and further refine my knowledge while sharing my insights to foster a culture of continuous improvement in technology."),
         ),
         TSize.s45.toHeight,
         Padding(
