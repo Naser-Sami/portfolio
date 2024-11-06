@@ -19,6 +19,14 @@ class UserManagerBad {
 }
 
 // Good example: Each class has a specific responsibility
+class User {
+  final String id;
+  final String name;
+  final String email;
+
+  User({required this.id, required this.name, required this.email});
+}
+
 class UserManager {
   final EmailService emailService;
   final Logger logger;
@@ -26,10 +34,10 @@ class UserManager {
 
   UserManager(this.emailService, this.logger, this.userRepository);
 
-  void registerUser(String username, String password) {
-    userRepository.saveUser(username, password);
-    emailService.sendWelcomeEmail(username);
-    logger.log("User registered: $username");
+  void registerUser(User user) {
+    userRepository.saveUser(user);
+    emailService.sendWelcomeEmail(user.name);
+    logger.log("User registered: ${user.name}");
   }
 }
 
@@ -48,9 +56,19 @@ class Logger {
 }
 
 class UserRepository {
-  void saveUser(String username, String password) {
+  void saveUser(User user) {
     // User saving logic (e.g., to a database)
-    log("User saved: $username");
+    log("User saved: ${user.id}");
+  }
+
+  void updateUser(User user) {
+    // User data updated logic (e.g., to a database)
+    log("Update user: $user");
+  }
+
+  void deleteUser(User user) {
+    // User data deleted logic (e.g., to a database)
+    log("Delete user: $user");
   }
 }
 

@@ -86,6 +86,8 @@ class PaymentProcessors {
 
   void processPayment(PaymentMethod paymentMethod) {
     paymentMethod.process(amount);
+    paymentMethod.validatePayment();
+    paymentMethod.getPaymentDetails();
   }
 }
 

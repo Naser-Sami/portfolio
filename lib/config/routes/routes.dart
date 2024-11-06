@@ -10,6 +10,9 @@ final router = GoRouter(
   observers: [AppNavigatorObserver()],
   navigatorKey: NavigationService.navigatorKey, // Set the navigatorKey
   errorBuilder: (context, state) => ErrorPage(state.error.toString()),
+  redirect: (context, state) {
+    return null;
+  },
   routes: [
     GoRoute(
       name: 'portfolio',

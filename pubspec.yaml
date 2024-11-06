@@ -57,6 +57,13 @@ dependencies:
   # Neumorphism
   flutter_inset_box_shadow: ^1.0.8
 
+  # Local Storage
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+  # Singleton
+  get_it: ^8.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
