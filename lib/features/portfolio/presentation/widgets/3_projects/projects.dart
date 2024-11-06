@@ -131,13 +131,15 @@ class ProjectsHorizontalWidget extends StatelessWidget {
                 onTap: () {
                   print('ON PROJECTS LIST CLICK');
                 },
-                child: const SizedBox(
+                child: SizedBox(
                   height: 80,
                   width: 80,
                   child: NeumorphismContainer(
                     inset: false,
                     shape: BoxShape.circle,
-                    child: FlutterLogo(),
+                    child: PngImageWidget(
+                      name: 'Rectangle${i + 1}',
+                    ),
                   ),
                 ),
               ),
@@ -171,7 +173,9 @@ class ProjectCardWidget extends StatelessWidget {
                   child: SizedBox(
                     width: width,
                     child: const NeumorphismContainer(
-                      child: FlutterLogo(),
+                      child: PngImageWidget(
+                        name: 'Rectangle1',
+                      ),
                     ),
                   ),
                 ),
@@ -190,10 +194,13 @@ class ProjectCardWidget extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 TSize.s24.toHeight,
-                const SizedBox(
+                SizedBox(
                   width: 50,
                   height: 50,
-                  child: FlutterLogo(),
+                  child: SvgIconWidget(
+                    name: 'git_hub',
+                    color: context.theme.colorScheme.onPrimaryContainer,
+                  ),
                 ),
               ],
             ),
