@@ -5,7 +5,7 @@ class DarkThemeColors {
 
   static const primary = Color(0xFF7733FF);
   static const onPrimary = Color(0xFF381E72);
-  static const primaryContainer = Color(0xFF4F378B);
+  static const primaryContainer = Color(0xFF4E4CD3);
   static const onPrimaryContainer = Color(0xFFEADDFF);
   static const primaryFixed = Color(0xFFEADDFF);
   static const onPrimaryFixed = Color(0xFF21005D);
@@ -38,7 +38,7 @@ class DarkThemeColors {
   static const outline = Color(0xFF938F99);
   static const outlineVariant = Color(0xFF49454F);
 
-  static const scaffoldBackground = Color(0xFF24272C);
+  static const scaffoldBackground = Color(0xFF2C2F38);
   static const background = Color(0xFF141218);
   static const onBackground = Color(0xFFE6E0E9);
 
@@ -68,4 +68,5 @@ class DarkThemeColors {
 
   static const text = Color(0xFFFFFFFF);
   static const red = Color(0xFFD32D20);
+  static const green = Color(0xFF80FF02);
 }

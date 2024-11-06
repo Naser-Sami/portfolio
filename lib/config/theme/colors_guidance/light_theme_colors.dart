@@ -37,7 +37,7 @@ class LightThemeColors {
 
   static const outline = Color(0xFF79747E);
   static const background = Color(0xFFFEF7FF);
-  static const onBackground = Color(0xFF1D1B20);
+  static const onBackground = Color(0xFF363636);
 
   static const scaffoldBackground = Color(0xFFE7ECEF);
 
@@ -68,4 +68,5 @@ class LightThemeColors {
 
   static const text = Color(0xFF000000);
   static const red = Color(0xFFD32D20);
+  static const green = Color.fromARGB(255, 93, 155, 32);
 }
