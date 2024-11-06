@@ -7,6 +7,6 @@ final providers = [
   BlocProvider<ThemeCubit>(create: (context) => ThemeCubit()),
   BlocProvider<PortfolioCubit>(
       create: (context) => PortfolioCubit()
-        ..fillInitialHeaderData()
-        ..fillSkillsData()),
+        ..initializeHeaderData()
+        ..initializeSkillsData()),
 ];

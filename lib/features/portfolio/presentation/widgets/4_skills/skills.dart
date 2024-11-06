@@ -31,8 +31,8 @@ class SkillsWidget extends StatelessWidget {
                 (e) {
                   if (TDeviceUtils.isPhysicalDevice()) {
                     return Listener(
-                      onPointerUp: (event) => context.read<PortfolioCubit>().onSkillSHover(e.id, false),
-                      onPointerDown: (event) => context.read<PortfolioCubit>().onSkillSHover(e.id, true),
+                      onPointerUp: (event) => context.read<PortfolioCubit>().onSkillHover(e.id, false),
+                      onPointerDown: (event) => context.read<PortfolioCubit>().onSkillHover(e.id, true),
                       child: NeumorphismButton(
                         width: 100,
                         isHovered: e.isHovered,
@@ -49,7 +49,7 @@ class SkillsWidget extends StatelessWidget {
                     surfaceColor: e.isHovered ? Theme.of(context).colorScheme.inversePrimary.withOpacity(0.80) : null,
                     text: e.title,
                     onTap: () {},
-                    onHover: (bool val) => context.read<PortfolioCubit>().onSkillSHover(e.id, val),
+                    onHover: (bool val) => context.read<PortfolioCubit>().onSkillHover(e.id, val),
                   );
                 },
               ).toList(),

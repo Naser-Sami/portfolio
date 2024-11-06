@@ -61,13 +61,13 @@ class EndDrawerWidget extends StatelessWidget {
                             context.read<PortfolioCubit>().scrollToSection(data.id);
                             Navigator.pop(context);
                           },
-                          onHover: (bool val) => context.read<PortfolioCubit>().onButtonHover(data.id, val),
+                          onHover: (bool val) => context.read<PortfolioCubit>().onHeaderButtonHover(data.id, val),
                         );
                       }
 
                       return Listener(
-                        onPointerUp: (event) => context.read<PortfolioCubit>().onButtonHover(data.id, false),
-                        onPointerDown: (event) => context.read<PortfolioCubit>().onButtonHover(data.id, true),
+                        onPointerUp: (event) => context.read<PortfolioCubit>().onHeaderButtonHover(data.id, false),
+                        onPointerDown: (event) => context.read<PortfolioCubit>().onHeaderButtonHover(data.id, true),
                         child: NeumorphismButton(
                           isHovered: data.isHovered,
                           text: data.title,
