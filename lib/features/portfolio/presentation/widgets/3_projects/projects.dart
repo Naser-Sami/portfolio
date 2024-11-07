@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '/core/_core.dart';
 import '/config/_config.dart';
@@ -30,14 +33,16 @@ class ProjectsWidget extends StatelessWidget {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(i == 0 ? TPadding.p48 : 0, TPadding.p08, TPadding.p24, TPadding.p08),
                       child: NeumorphismButton(
+                        width: 124,
                         blurRadius: 2,
                         offset: const Offset(2, 2),
                         isHovered: false,
-                        surfaceColor: Theme.of(context).colorScheme.primary,
+                        surfaceColor: context.read<PortfolioCubit>().state.projectIndex == i ? Theme.of(context).colorScheme.primary : null,
                         text: ProjectsData.projects[i].language,
                         textStyle: Theme.of(context).textTheme.titleMedium?.apply(color: Colors.white),
                         onTap: () {
-                          print('ON PROJECTS TABS CLICK');
+                          log('ON PROJECTS TABS CLICK');
+                          context.read<PortfolioCubit>().setProjectIndex(i);
                         },
                         onHover: (bool val) {},
                       ),
@@ -55,7 +60,10 @@ class ProjectsWidget extends StatelessWidget {
             children: [
               Padding(
                 padding: padding,
-                child: const ProjectCardWidget(),
+                child: ProjectCardWidget(
+                  pIndex: context.watch<PortfolioCubit>().state.projectIndex,
+                  index: context.watch<PortfolioCubit>().state.projectDataIndex,
+                ),
               ),
               TSize.s76.toHeight,
               const ProjectsHorizontalWidget(),
@@ -64,16 +72,19 @@ class ProjectsWidget extends StatelessWidget {
         if (!widthCondition)
           Padding(
             padding: padding,
-            child: const Row(
+            child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Expanded(
+                const Expanded(
                   flex: 40,
                   child: ProjectsVerticalWidget(),
                 ),
                 Expanded(
                   flex: 60,
-                  child: ProjectCardWidget(),
+                  child: ProjectCardWidget(
+                    pIndex: context.watch<PortfolioCubit>().state.projectIndex,
+                    index: context.watch<PortfolioCubit>().state.projectDataIndex,
+                  ),
                 ),
               ],
             ),
@@ -88,23 +99,27 @@ class ProjectsVerticalWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final data = ProjectsData.projects[context.watch<PortfolioCubit>().state.projectIndex].data;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < data.length; i++)
           Padding(
-            padding: EdgeInsets.only(bottom: i == 2 ? 0 : TPadding.p88),
+            padding: EdgeInsets.only(bottom: i == data.length - 1 ? 0 : TPadding.p88),
             child: InkWell(
               onTap: () {
-                print('ON PROJECTS LIST CLICK');
+                context.read<PortfolioCubit>().setProjectDataIndex(i);
               },
-              child: const SizedBox(
+              child: SizedBox(
                 height: 160,
                 width: 160,
                 child: NeumorphismContainer(
                   inset: false,
                   shape: BoxShape.circle,
-                  child: FlutterLogo(),
+                  child: PngImageWidget(
+                    name: data[i].image,
+                  ),
                 ),
               ),
             ),
@@ -119,17 +134,19 @@ class ProjectsHorizontalWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final data = ProjectsData.projects[context.watch<PortfolioCubit>().state.projectIndex].data;
+
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          for (int i = 0; i < 3; i++)
+          for (int i = 0; i < data.length; i++)
             Padding(
-              padding: EdgeInsetsDirectional.only(start: i == 0 ? TPadding.p32 : 0, end: i == 2 ? 0 : TPadding.p32),
+              padding: EdgeInsetsDirectional.only(start: i == 0 ? TPadding.p32 : 0, end: i == data.length - 1 ? 0 : TPadding.p32),
               child: InkWell(
                 onTap: () {
-                  print('ON PROJECTS LIST CLICK');
+                  context.read<PortfolioCubit>().setProjectDataIndex(i);
                 },
                 child: SizedBox(
                   height: 80,
@@ -138,7 +155,7 @@ class ProjectsHorizontalWidget extends StatelessWidget {
                     inset: false,
                     shape: BoxShape.circle,
                     child: PngImageWidget(
-                      name: 'Rectangle${i + 1}',
+                      name: data[i].image,
                     ),
                   ),
                 ),
@@ -151,15 +168,18 @@ class ProjectsHorizontalWidget extends StatelessWidget {
 }
 
 class ProjectCardWidget extends StatelessWidget {
-  const ProjectCardWidget({super.key});
+  final int pIndex;
+  final int index;
+  const ProjectCardWidget({super.key, required this.pIndex, required this.index});
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    final data = ProjectsData.projects[pIndex].data[index];
 
     return InkWell(
       onTap: () {
-        print("ON THE SELECTED PROJECT CLICK");
+        log("ON THE SELECTED PROJECT CLICK");
       },
       child: SizedBox(
         height: 570,
@@ -172,34 +192,39 @@ class ProjectCardWidget extends StatelessWidget {
                 Expanded(
                   child: SizedBox(
                     width: width,
-                    child: const NeumorphismContainer(
+                    child: NeumorphismContainer(
                       child: PngImageWidget(
-                        name: 'Rectangle1',
+                        name: data.image,
                       ),
                     ),
                   ),
                 ),
                 TSize.s20.toHeight,
                 TextWidget(
-                  ProjectsData.projects.first.data.first.name,
+                  data.name,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 TSize.s20.toHeight,
                 TextWidget(
-                  ProjectsData.projects.first.data.first.description,
+                  data.description,
                   textAlign: TextAlign.center,
                   maxLines: 4,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 TSize.s24.toHeight,
-                SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: SvgIconWidget(
-                    name: 'git_hub',
-                    color: context.theme.colorScheme.onPrimaryContainer,
+                InkWell(
+                  onTap: () {
+                    log(data.gitHubLink);
+                  },
+                  child: SizedBox(
+                    width: 50,
+                    height: 50,
+                    child: SvgIconWidget(
+                      name: 'git_hub',
+                      color: context.theme.colorScheme.onPrimaryContainer,
+                    ),
                   ),
                 ),
               ],

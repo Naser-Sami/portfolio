@@ -55,7 +55,7 @@ class ProjectsData {
   static List<ProjectsDataModel> projects = [
     ProjectsDataModel(
       id: 0,
-      language: 'Flutter',
+      language: 'Web',
       data: [
         ProjectsDataSubModel(
           id: 0,
@@ -64,7 +64,7 @@ class ProjectsData {
               'The "Analysis Banking System BEYE" is a tool designed for bank managers to help them make timely, informed decisions. It allows them to monitor and track the status of various bank sections, providing insights that support strategic planning and operational efficiency.',
           gitHubLink: 'https://github.com/Naser-Ebedo/beye_v2/tree/__naser__',
           urlLink: '',
-          image: '',
+          image: 'mockup_1',
         ),
         ProjectsDataSubModel(
           id: 1,
@@ -84,7 +84,37 @@ class ProjectsData {
         ),
         ProjectsDataSubModel(
           id: 3,
+          name: 'Game Guru Admin',
+          description: '',
+          gitHubLink: '',
+          urlLink: '',
+          image: '',
+        ),
+        ProjectsDataSubModel(
+          id: 4,
+          name: 'Game Guru Club Manager',
+          description: '',
+          gitHubLink: '',
+          urlLink: '',
+          image: '',
+        ),
+      ],
+    ),
+    ProjectsDataModel(
+      id: 1,
+      language: 'Mobile',
+      data: [
+        ProjectsDataSubModel(
+          id: 0,
           name: 'Game Guru',
+          description: '',
+          gitHubLink: '',
+          urlLink: '',
+          image: '',
+        ),
+        ProjectsDataSubModel(
+          id: 1,
+          name: 'Game Guru Coach & Employee',
           description: '',
           gitHubLink: '',
           urlLink: '',

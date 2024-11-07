@@ -10,6 +10,8 @@ class PortfolioCubit extends Cubit<PortfolioState> {
   PortfolioCubit()
       : super(
           const PortfolioState(
+            projectIndex: 0,
+            projectDataIndex: 0,
             headerData: [],
             skillsData: [],
           ),
@@ -56,4 +58,8 @@ class PortfolioCubit extends Cubit<PortfolioState> {
       scrollService.animateScrollTo(position);
     }
   }
+
+  // -- Projects
+  void setProjectIndex(int index) => emit(state.copyWith(projectIndex: index));
+  void setProjectDataIndex(int index) => emit(state.copyWith(projectDataIndex: index));
 }

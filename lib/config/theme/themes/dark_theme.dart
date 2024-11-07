@@ -11,6 +11,11 @@ ThemeData _darkTheme = ThemeData.dark(useMaterial3: true).copyWith(
   extensions: darkExtensions,
   dividerTheme: darkDividerTheme,
   dividerColor: DarkThemeColors.onBackground.withOpacity(0.25),
+  // buttonTheme: const ButtonThemeData(
+  //   splashColor: Colors.transparent,
+  //   highlightColor: Colors.transparent,
+  //   hoverColor: Colors.transparent,
+  // ),
   // typography: Typography(),
   // -- Text form field
   // inputDecorationTheme:
