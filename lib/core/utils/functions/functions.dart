@@ -14,7 +14,7 @@ class TFunctions {
   }
 
   // URL Launcher
-  static void launchUrl(String url) async {
+  static Future<void> launchUrl(String url) async {
     if (await canLaunchUrlString(url)) {
       await launchUrlString(url);
     } else {

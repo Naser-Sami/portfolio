@@ -87,7 +87,7 @@ class ProjectsData {
           name: 'Game Guru Admin',
           description: '',
           gitHubLink: '',
-          urlLink: '',
+          urlLink: 'https://gameguru.com.sa:631/',
           image: '',
         ),
         ProjectsDataSubModel(
@@ -95,7 +95,7 @@ class ProjectsData {
           name: 'Game Guru Club Manager',
           description: '',
           gitHubLink: '',
-          urlLink: '',
+          urlLink: 'https://gameguru.com.sa/',
           image: '',
         ),
       ],
@@ -110,7 +110,7 @@ class ProjectsData {
           description: '',
           gitHubLink: '',
           urlLink: '',
-          image: '',
+          image: 'game_guru_logo',
         ),
         ProjectsDataSubModel(
           id: 1,

@@ -119,6 +119,7 @@ class ProjectsVerticalWidget extends StatelessWidget {
                   shape: BoxShape.circle,
                   child: PngImageWidget(
                     name: data[i].image,
+                    fit: BoxFit.scaleDown,
                   ),
                 ),
               ),
@@ -156,6 +157,7 @@ class ProjectsHorizontalWidget extends StatelessWidget {
                     shape: BoxShape.circle,
                     child: PngImageWidget(
                       name: data[i].image,
+                      fit: BoxFit.scaleDown,
                     ),
                   ),
                 ),
@@ -195,6 +197,7 @@ class ProjectCardWidget extends StatelessWidget {
                     child: NeumorphismContainer(
                       child: PngImageWidget(
                         name: data.image,
+                        fit: BoxFit.scaleDown,
                       ),
                     ),
                   ),
@@ -215,9 +218,7 @@ class ProjectCardWidget extends StatelessWidget {
                 ),
                 TSize.s24.toHeight,
                 InkWell(
-                  onTap: () {
-                    log(data.gitHubLink);
-                  },
+                  onTap: () async => await TFunctions.launchUrl(data.gitHubLink),
                   child: SizedBox(
                     width: 50,
                     height: 50,
