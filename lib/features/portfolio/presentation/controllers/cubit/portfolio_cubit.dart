@@ -14,6 +14,7 @@ class PortfolioCubit extends Cubit<PortfolioState> {
             projectDataIndex: 0,
             headerData: [],
             skillsData: [],
+            experienceData: [],
           ),
         ) {
     _init();
@@ -22,40 +23,52 @@ class PortfolioCubit extends Cubit<PortfolioState> {
   final scrollController = ScrollController();
   final List<GlobalKey> sectionKeys = [GlobalKey(), GlobalKey(), GlobalKey(), GlobalKey(), GlobalKey(), GlobalKey(), GlobalKey()];
 
-  late final HeaderService headerService;
-  late final SkillsService skillsService;
-  late final ScrollService scrollService;
+  late final HeaderService _headerService;
+  late final SkillsService _skillsService;
+  late final ScrollService _scrollService;
+  late final ExperienceService _experienceService;
 
   void _init() {
-    headerService = HeaderService();
-    skillsService = SkillsService();
-    scrollService = ScrollService(scrollController, sectionKeys);
+    _headerService = HeaderService();
+    _skillsService = SkillsService();
+    _experienceService = ExperienceService();
+    _scrollService = ScrollService(scrollController, sectionKeys);
   }
 
   void initializeHeaderData() {
-    final headerData = headerService.createInitialData();
+    final headerData = _headerService.createInitialData();
     emit(state.copyWith(headerData: headerData));
   }
 
   void initializeSkillsData() {
-    final skillsData = skillsService.createInitialData();
+    final skillsData = _skillsService.createInitialData();
     emit(state.copyWith(skillsData: skillsData));
   }
 
+  void initializeExperienceData() async {
+    final experienceData = await _experienceService.getExperienceData();
+    emit(state.copyWith(experienceData: experienceData));
+  }
+
   void onHeaderButtonHover(int id, bool isHovered) {
-    final updatedHeaderData = headerService.hoverState(state.headerData, id, isHovered);
+    final updatedHeaderData = _headerService.hoverState(state.headerData, id, isHovered);
     emit(state.copyWith(headerData: updatedHeaderData));
   }
 
   void onSkillHover(int id, bool isHovered) {
-    final updatedSkillsData = skillsService.hoverState(state.skillsData, id, isHovered);
+    final updatedSkillsData = _skillsService.hoverState(state.skillsData, id, isHovered);
     emit(state.copyWith(skillsData: updatedSkillsData));
   }
 
+  void onExperienceHover(int id, bool isHovered) {
+    final updatedData = _experienceService.hoverState(state.experienceData, id, isHovered);
+    emit(state.copyWith(experienceData: updatedData));
+  }
+
   void scrollToSection(int index) {
-    final position = scrollService.calculateScrollPosition(index);
+    final position = _scrollService.calculateScrollPosition(index);
     if (position != null) {
-      scrollService.animateScrollTo(position);
+      _scrollService.animateScrollTo(position);
     }
   }
 

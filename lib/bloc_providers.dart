@@ -6,7 +6,9 @@ import 'features/_features.dart';
 final providers = [
   BlocProvider<ThemeCubit>(create: (context) => ThemeCubit()),
   BlocProvider<PortfolioCubit>(
-      create: (context) => PortfolioCubit()
-        ..initializeHeaderData()
-        ..initializeSkillsData()),
+    create: (context) => PortfolioCubit()
+      ..initializeHeaderData()
+      ..initializeSkillsData()
+      ..initializeExperienceData(),
+  ),
 ];

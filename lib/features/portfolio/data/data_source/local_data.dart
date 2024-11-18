@@ -150,3 +150,39 @@ class ProjectsDataSubModel {
     required this.image,
   });
 }
+
+class ExperienceData {
+  final int id;
+  final String title;
+  final String focusedTitle;
+  final String description;
+  final String date;
+  final bool isHovered;
+
+  ExperienceData({
+    required this.id,
+    required this.title,
+    required this.focusedTitle,
+    required this.description,
+    required this.date,
+    required this.isHovered,
+  });
+
+  ExperienceData copyWith({
+    int? id,
+    String? title,
+    String? focusedTitle,
+    String? description,
+    String? date,
+    bool? isHovered,
+  }) {
+    return ExperienceData(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      focusedTitle: focusedTitle ?? this.focusedTitle,
+      description: description ?? this.description,
+      date: date ?? this.date,
+      isHovered: isHovered ?? this.isHovered,
+    );
+  }
+}
