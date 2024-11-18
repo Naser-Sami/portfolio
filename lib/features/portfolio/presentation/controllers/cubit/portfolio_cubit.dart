@@ -45,8 +45,8 @@ class PortfolioCubit extends Cubit<PortfolioState> {
     emit(state.copyWith(skillsData: skillsData));
   }
 
-  void initializeExperienceData() async {
-    final experienceData = await _experienceService.getExperienceData();
+  void initializeExperienceData() {
+    final experienceData = _experienceService.getExperienceData();
     emit(state.copyWith(experienceData: experienceData));
   }
 

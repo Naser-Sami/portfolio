@@ -138,50 +138,61 @@ class ExperienceCardWidget extends StatelessWidget {
         ),
         child: SizedBox(
           height: widthCondition ? 224 : 370,
-          child: NeumorphismContainer(
-            inset: data.isHovered,
-            child: Padding(
-              padding: const EdgeInsets.all(TPadding.p16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text.rich(
-                    textAlign: TextAlign.start,
-                    style: smallScreen
-                        ? textTheme.labelMedium?.apply(
-                            color: context.isDarkMode ? DarkThemeColors.text : LightThemeColors.text,
-                          )
-                        : textTheme.headlineSmall,
-                    TextSpan(
+          child: InkWell(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            onTap: () {},
+            onHover: (bool val) => context.read<PortfolioCubit>().onExperienceHover(data.id, val),
+            child: BlocBuilder<PortfolioCubit, PortfolioState>(
+              builder: (context, state) {
+                return NeumorphismContainer(
+                  inset: state.experienceData[index].isHovered,
+                  child: Padding(
+                    padding: const EdgeInsets.all(TPadding.p16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        TextSpan(text: data.title),
-                        TextSpan(
-                          text: data.focusedTitle,
-                          style: TextStyle(
-                            color: context.isDarkMode ? DarkThemeColors.green : LightThemeColors.green,
+                        Text.rich(
+                          textAlign: TextAlign.start,
+                          style: smallScreen
+                              ? textTheme.labelMedium?.apply(
+                                  color: context.isDarkMode ? DarkThemeColors.text : LightThemeColors.text,
+                                )
+                              : textTheme.headlineSmall,
+                          TextSpan(
+                            children: [
+                              TextSpan(text: data.title),
+                              TextSpan(
+                                text: data.focusedTitle,
+                                style: TextStyle(
+                                  color: context.isDarkMode ? DarkThemeColors.green : LightThemeColors.green,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        TSize.s04.toHeight,
+                        TextWidget(
+                          'Date: | ${data.date}',
+                          style: textTheme.labelSmall?.copyWith(fontWeight: FontWeight.w500),
+                        ),
+                        TSize.s08.toHeight,
+                        Flexible(
+                          child: SingleChildScrollView(
+                            child: TextWidget(
+                              data.description,
+                              style: textTheme.labelSmall,
+                              maxLines: 50,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  TSize.s04.toHeight,
-                  TextWidget(
-                    'Date: | ${data.date}',
-                    style: textTheme.labelSmall?.copyWith(fontWeight: FontWeight.w500),
-                  ),
-                  TSize.s08.toHeight,
-                  Flexible(
-                    child: SingleChildScrollView(
-                      child: TextWidget(
-                        data.description,
-                        style: textTheme.labelSmall,
-                        maxLines: 50,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                );
+              },
             ),
           ),
         ),
