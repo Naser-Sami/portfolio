@@ -62,9 +62,9 @@ class ProjectsData {
           name: 'BEYE Banking Data Analytics Solutions',
           description:
               'The "Analysis Banking System BEYE" is a tool designed for bank managers to help them make timely, informed decisions. It allows them to monitor and track the status of various bank sections, providing insights that support strategic planning and operational efficiency.',
-          gitHubLink: 'https://github.com/Naser-Ebedo/beye_v2/tree/__naser__',
-          urlLink: '',
-          image: 'mockup_1',
+          gitHubLink: 'https://github.com/Naser-Ebedo',
+          urlLink: 'https://beye.beyegroup.com/',
+          image: 'BEYE_Dashboard1',
         ),
         ProjectsDataSubModel(
           id: 1,
@@ -72,14 +72,14 @@ class ProjectsData {
           description: 'BEYE is a pioneering finch company specialized in providing intelligent business analytics solutions for the banking sector.',
           gitHubLink: 'https://github.com/Naser-Ebedo/BEYE-Group-Website',
           urlLink: 'https://www.beyegroup.com/',
-          image: '',
+          image: 'beye_website',
         ),
         ProjectsDataSubModel(
           id: 2,
           name: 'AEYE',
           description: 'AI Chat App integrated with Chat GPT 4 Based on BEYE System Modules',
           gitHubLink: 'https://github.com/Naser-Sami/aeye',
-          urlLink: '',
+          urlLink: 'https://ims.beyegroup.com/',
           image: '',
         ),
         ProjectsDataSubModel(
@@ -110,7 +110,7 @@ class ProjectsData {
           description: '',
           gitHubLink: '',
           urlLink: '',
-          image: 'game_guru_logo',
+          image: 'GameGuru0',
         ),
         ProjectsDataSubModel(
           id: 1,

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '/core/_core.dart';
 import '/config/_config.dart';
+import '/features/_features.dart';
 
 class WhoIAmInfo extends StatelessWidget {
   const WhoIAmInfo({super.key});
@@ -41,9 +43,9 @@ class WhoIAmInfo extends StatelessWidget {
           ),
         ),
         TSize.s24.toHeight,
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: TPadding.p48),
-          child: TextWidget(
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * (smallScreen ? 0.10 : 0.20)),
+          child: const TextWidget(
               textAlign: TextAlign.center,
               " As a dedicated Flutter developer with 3 years of hands-on experience, I am driven by challenges and continuously strive to advance my skills in software development. I am actively expanding my expertise in C#, .NET, SQL, and Python, with a strong commitment to learning and growth. I am seeking an opportunity within an innovative organization where I can contribute to impactful projects, collaborate with skilled professionals, and further refine my knowledge while sharing my insights to foster a culture of continuous improvement in technology."),
         ),
@@ -54,21 +56,43 @@ class WhoIAmInfo extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Flexible(
-                child: NeumorphismButton(
-                  isHovered: false,
-                  text: 'Learn More',
-                  onTap: () {},
-                  onHover: (bool val) {},
-                ),
+                child: Builder(builder: (context) {
+                  bool isHovered = false;
+                  return StatefulBuilder(
+                    builder: (context, setState) {
+                      return NeumorphismButton(
+                        isHovered: isHovered,
+                        text: 'Learn More',
+                        onTap: () => context.read<PortfolioCubit>().scrollToSection(1), // widgetId 1 = AboutMe
+                        onHover: (bool val) {
+                          setState(() {
+                            isHovered = val;
+                          });
+                        },
+                      );
+                    },
+                  );
+                }),
               ),
               SizedBox(width: TDeviceUtils.getScreenWidth() * 0.05),
               Flexible(
-                child: NeumorphismButton(
-                  isHovered: false,
-                  text: 'Contact me',
-                  onTap: () {},
-                  onHover: (bool val) {},
-                ),
+                child: Builder(builder: (context) {
+                  bool isHovered = false;
+                  return StatefulBuilder(
+                    builder: (context, setState) {
+                      return NeumorphismButton(
+                        isHovered: isHovered,
+                        text: 'Contact me',
+                        onTap: () => context.read<PortfolioCubit>().scrollToSection(6), // widgetId 6 = ContactMe
+                        onHover: (bool val) {
+                          setState(() {
+                            isHovered = val;
+                          });
+                        },
+                      );
+                    },
+                  );
+                }),
               ),
             ],
           ),

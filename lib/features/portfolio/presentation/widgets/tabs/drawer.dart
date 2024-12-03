@@ -58,7 +58,7 @@ class EndDrawerWidget extends StatelessWidget {
                           isHovered: data.isHovered,
                           text: data.title,
                           onTap: () {
-                            context.read<PortfolioCubit>().scrollToSection(data.id);
+                            context.read<PortfolioCubit>().scrollToSection(data.widgetId);
                             Navigator.pop(context);
                           },
                           onHover: (bool val) => context.read<PortfolioCubit>().onHeaderButtonHover(data.id, val),

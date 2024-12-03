@@ -114,12 +114,20 @@ class ProjectsVerticalWidget extends StatelessWidget {
               child: SizedBox(
                 height: 160,
                 width: 160,
-                child: NeumorphismContainer(
-                  inset: false,
-                  shape: BoxShape.circle,
-                  child: PngImageWidget(
-                    name: data[i].image,
-                    fit: BoxFit.scaleDown,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: NeumorphismContainer(
+                    inset: false,
+                    // blurRadius: 20,
+                    // offset: Offset(10, 10),
+                    shape: BoxShape.circle,
+                    child: Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: PngImageWidget(
+                        name: data[i].image,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -152,12 +160,15 @@ class ProjectsHorizontalWidget extends StatelessWidget {
                 child: SizedBox(
                   height: 80,
                   width: 80,
-                  child: NeumorphismContainer(
-                    inset: false,
-                    shape: BoxShape.circle,
-                    child: PngImageWidget(
-                      name: data[i].image,
-                      fit: BoxFit.scaleDown,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: NeumorphismContainer(
+                      inset: false,
+                      shape: BoxShape.circle,
+                      child: PngImageWidget(
+                        name: data[i].image,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
@@ -180,9 +191,7 @@ class ProjectCardWidget extends StatelessWidget {
     final data = ProjectsData.projects[pIndex].data[index];
 
     return InkWell(
-      onTap: () {
-        log("ON THE SELECTED PROJECT CLICK");
-      },
+      onTap: () async => await TFunctions.launchUrl(data.urlLink),
       child: SizedBox(
         height: 570,
         child: NeumorphismContainer(
@@ -192,12 +201,15 @@ class ProjectCardWidget extends StatelessWidget {
             child: Column(
               children: [
                 Expanded(
-                  child: SizedBox(
-                    width: width,
-                    child: NeumorphismContainer(
-                      child: PngImageWidget(
-                        name: data.image,
-                        fit: BoxFit.scaleDown,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: SizedBox(
+                      width: width,
+                      child: NeumorphismContainer(
+                        child: PngImageWidget(
+                          name: data.image,
+                          fit: BoxFit.fill,
+                        ),
                       ),
                     ),
                   ),
