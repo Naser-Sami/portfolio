@@ -13,12 +13,16 @@ class WhoIAmImage extends StatelessWidget {
     return SizedBox(
       width: width,
       height: height,
-      child: const NeumorphismContainer(
+      child: NeumorphismContainer(
         inset: false,
         shape: BoxShape.circle,
-        child: PngImageWidget(
-          name: 'Frame',
-          fit: BoxFit.contain,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(200),
+          child: const PngImageWidget(
+            // name: 'Frame',
+            name: 'Naser0',
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );

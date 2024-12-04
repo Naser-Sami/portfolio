@@ -39,7 +39,9 @@ class ProjectsWidget extends StatelessWidget {
                         isHovered: false,
                         surfaceColor: context.read<PortfolioCubit>().state.projectIndex == i ? Theme.of(context).colorScheme.primary : null,
                         text: ProjectsData.projects[i].language,
-                        textStyle: Theme.of(context).textTheme.titleMedium?.apply(color: Colors.white),
+                        textStyle: Theme.of(context).textTheme.titleMedium?.apply(
+                              color: context.read<PortfolioCubit>().state.projectIndex == i ? Colors.white : null,
+                            ),
                         onTap: () {
                           log('ON PROJECTS TABS CLICK');
                           context.read<PortfolioCubit>().setProjectIndex(i);
@@ -193,7 +195,7 @@ class ProjectCardWidget extends StatelessWidget {
     return InkWell(
       onTap: () async => await TFunctions.launchUrl(data.urlLink),
       child: SizedBox(
-        height: 570,
+        height: 670,
         child: NeumorphismContainer(
           inset: false,
           child: Padding(
