@@ -10,14 +10,14 @@ class ExperienceWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final widthCondition = MediaQuery.of(context).size.width < 1000;
+    final widthCondition = MediaQuery.of(context).size.width < 1100;
     final width = MediaQuery.of(context).size.width;
 
     final data = context.read<PortfolioCubit>().state.experienceData;
 
     if (widthCondition) {
       return Padding(
-        padding: EdgeInsets.symmetric(horizontal: width * 0.10),
+        padding: EdgeInsets.symmetric(horizontal: widthCondition ? width * 0.10 : width * 0.15),
         child: SizedBox(
           width: width,
           child: Column(
@@ -149,7 +149,7 @@ class ExperienceCardWidget extends StatelessWidget {
                 return NeumorphismContainer(
                   inset: state.experienceData[index].isHovered,
                   child: Padding(
-                    padding: const EdgeInsets.all(TPadding.p16),
+                    padding: EdgeInsets.all(smallScreen ? TPadding.p16 : TPadding.p32),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -159,13 +159,14 @@ class ExperienceCardWidget extends StatelessWidget {
                               ? textTheme.labelMedium?.apply(
                                   color: context.isDarkMode ? DarkThemeColors.text : LightThemeColors.text,
                                 )
-                              : textTheme.headlineSmall,
+                              : textTheme.headlineMedium,
                           TextSpan(
                             children: [
                               TextSpan(text: data.title),
                               TextSpan(
                                 text: data.focusedTitle,
                                 style: TextStyle(
+                                  fontWeight: FontWeight.bold,
                                   color: context.isDarkMode ? DarkThemeColors.green : LightThemeColors.green,
                                 ),
                               ),
@@ -175,14 +176,16 @@ class ExperienceCardWidget extends StatelessWidget {
                         TSize.s04.toHeight,
                         TextWidget(
                           'Date: | ${data.date}',
-                          style: textTheme.labelSmall?.copyWith(fontWeight: FontWeight.w500),
+                          style: smallScreen
+                              ? textTheme.labelSmall?.copyWith(fontWeight: FontWeight.w500)
+                              : textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w500),
                         ),
                         TSize.s08.toHeight,
                         Flexible(
                           child: SingleChildScrollView(
                             child: TextWidget(
                               data.description,
-                              style: textTheme.labelSmall,
+                              style: smallScreen ? textTheme.labelSmall : textTheme.bodyMedium,
                               maxLines: 50,
                               overflow: TextOverflow.ellipsis,
                             ),

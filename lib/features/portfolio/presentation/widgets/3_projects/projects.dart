@@ -12,7 +12,7 @@ class ProjectsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final widthCondition = MediaQuery.of(context).size.width < 800;
+    final widthCondition = MediaQuery.of(context).size.width < 1100;
     final width = MediaQuery.of(context).size.width;
     final padding = EdgeInsets.symmetric(horizontal: widthCondition ? width * 0.10 : width * 0.15);
 
@@ -45,6 +45,7 @@ class ProjectsWidget extends StatelessWidget {
                         onTap: () {
                           log('ON PROJECTS TABS CLICK');
                           context.read<PortfolioCubit>().setProjectIndex(i);
+                          context.read<PortfolioCubit>().setProjectDataIndex(0);
                         },
                         onHover: (bool val) {},
                       ),
@@ -123,11 +124,21 @@ class ProjectsVerticalWidget extends StatelessWidget {
                     // blurRadius: 20,
                     // offset: Offset(10, 10),
                     shape: BoxShape.circle,
-                    child: Padding(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(200),
+                        border: Border.all(
+                          color: TFunctions.isDarkMode(context) ? Colors.grey.shade800 : Colors.black,
+                          width: 2,
+                        ),
+                      ),
                       padding: const EdgeInsets.all(2.0),
-                      child: PngImageWidget(
-                        name: data[i].image,
-                        fit: BoxFit.cover,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(200),
+                        child: PngImageWidget(
+                          name: data[i].image,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
@@ -167,9 +178,21 @@ class ProjectsHorizontalWidget extends StatelessWidget {
                     child: NeumorphismContainer(
                       inset: false,
                       shape: BoxShape.circle,
-                      child: PngImageWidget(
-                        name: data[i].image,
-                        fit: BoxFit.cover,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(200),
+                          border: Border.all(
+                            color: TFunctions.isDarkMode(context) ? Colors.grey.shade800 : Colors.black,
+                            width: 2,
+                          ),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(200),
+                          child: PngImageWidget(
+                            name: data[i].image,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -195,7 +218,7 @@ class ProjectCardWidget extends StatelessWidget {
     return InkWell(
       onTap: () async => await TFunctions.launchUrl(data.urlLink),
       child: SizedBox(
-        height: 670,
+        height: width > 1100 ? 670 : 570,
         child: NeumorphismContainer(
           inset: false,
           child: Padding(

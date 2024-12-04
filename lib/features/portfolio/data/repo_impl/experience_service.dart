@@ -15,19 +15,19 @@ class ExperienceService implements ExperienceServiceInterface {
       ),
       ExperienceData(
         id: 1,
-        title: "Software Engineer at ",
-        focusedTitle: "Google",
-        date: "2026 - 2030",
+        title: "Mobile App Developer ",
+        focusedTitle: "FreeLancer",
+        date: "2023 - Present",
         description:
-            "I am a software engineer at Google. I work on the Google Maps team. I am responsible for developing the Google Maps app. I am also responsible for developing the Google Maps website.",
+            "Sports platform for users in Saudi Arabia to connect with friends for sports, reserve courts, join games, and attend classes led by professional coaches. It includes a mobile app for iOS and Android, built with Flutter using Bloc and Clean Architecture, as well as a Flutter web app for admin and club managers to manage activities.",
         isHovered: false,
       ),
       ExperienceData(
         id: 2,
-        title: "Software Engineer at ",
-        focusedTitle: "Apple",
-        date: "2030 - 2040",
-        description: "I am a software engineer at Apple. I work on the Apple app.",
+        title: "Mobile Development (Flutter) ",
+        focusedTitle: "Pioneers Academy",
+        date: "Nov 2021 - Apr 2022",
+        description: "Creating a mobile app for iOS and Android using Flutter",
         isHovered: false,
       ),
     ];

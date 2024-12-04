@@ -77,7 +77,8 @@ class ProjectsData {
         ProjectsDataSubModel(
           id: 2,
           name: 'AEYE',
-          description: 'AI Chat App integrated with Chat GPT 4 Based on BEYE System Modules',
+          description:
+              'AI Chat App integrated with Chat GPT 4 Based on BEYE System Modules, and create a fully dynamic Charts Visualization with the ability .',
           gitHubLink: 'https://github.com/Naser-Sami',
           urlLink: 'https://ims.beyegroup.com/',
           image: 'aeye',
@@ -85,7 +86,7 @@ class ProjectsData {
         ProjectsDataSubModel(
           id: 3,
           name: 'Game Guru Admin',
-          description: '',
+          description: 'Flutter Web App for admin to manage activities and reservations.',
           gitHubLink: 'https://github.com/Naser-Sami',
           urlLink: 'https://gameguru.com.sa:631/',
           image: 'game_guru_admin',
@@ -93,7 +94,7 @@ class ProjectsData {
         ProjectsDataSubModel(
           id: 4,
           name: 'Game Guru Club Manager',
-          description: '',
+          description: 'A Flutter Web App for club managers to manage activities and reservations.',
           gitHubLink: 'https://github.com/Naser-Sami',
           urlLink: 'https://gameguru.com.sa/',
           image: 'game_guru_club',
@@ -107,7 +108,8 @@ class ProjectsData {
         ProjectsDataSubModel(
           id: 0,
           name: 'Game Guru',
-          description: '',
+          description:
+              'The app is a sports platform for users in Saudi Arabia to connect with friends for sports, reserve courts, join games, and attend classes led by professional coaches. It includes a mobile app for iOS and Android, built with Flutter using Bloc and Clean Architecture',
           gitHubLink: 'https://github.com/Naser-Sami',
           urlLink: '',
           image: 'GameGuru0',
@@ -115,7 +117,7 @@ class ProjectsData {
         ProjectsDataSubModel(
           id: 1,
           name: 'Game Guru Coach & Employee',
-          description: '',
+          description: 'This is a mobile app for coaches and employees to manage activities and reservations.',
           gitHubLink: 'https://github.com/Naser-Sami',
           urlLink: '',
           image: 'GameGuru0',
