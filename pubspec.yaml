@@ -43,6 +43,7 @@ dependencies:
 
   # apis_helper
   dio: ^5.7.0
+  http: ^1.2.2
 
   # Routing
   go_router: ^14.3.0
@@ -63,6 +64,9 @@ dependencies:
 
   # Singleton
   get_it: ^8.0.2
+
+  # mailer
+  mailer: ^6.3.0
 
 dev_dependencies:
   flutter_test:

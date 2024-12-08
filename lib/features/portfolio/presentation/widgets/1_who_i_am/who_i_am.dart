@@ -12,7 +12,7 @@ class WhoIAmMediumLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final widthCondition = MediaQuery.of(context).size.width < 1000;
+    final widthCondition = MediaQuery.of(context).size.width < 1100;
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,

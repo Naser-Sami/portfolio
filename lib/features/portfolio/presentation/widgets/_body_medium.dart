@@ -10,7 +10,7 @@ class PortfolioBodyMedium extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final widthCondition = MediaQuery.of(context).size.width < 1000;
+    final widthCondition = MediaQuery.of(context).size.width < 1100;
     final cubit = context.read<PortfolioCubit>();
     final key = cubit.sectionKeys;
 
@@ -36,7 +36,7 @@ class PortfolioBodyMedium extends StatelessWidget {
             ExperienceWidget(key: key[5]),
             TSize.s143.toHeight,
             ContactMeWidget(key: key[6]),
-            TSize.s143.toHeight,
+            // TSize.s143.toHeight,
           ],
         ),
       ),

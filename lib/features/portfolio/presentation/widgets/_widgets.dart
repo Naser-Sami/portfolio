@@ -2,6 +2,7 @@ export '_body_large.dart';
 export '_body_medium.dart';
 export '_body_small.dart';
 export 'tabs/_tabs.dart';
+export 'contacts_icons.dart';
 export 'theme/theme_widget.dart';
 export 'progress_bar/progress_bar.dart';
 

@@ -37,16 +37,19 @@ class EndDrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(TPadding.p48),
-        child: Column(
-          children: [
-            TSize.s24.toHeight,
-            const ThemeWidget(),
-            TSize.s24.toHeight,
-            const Divider(),
-            TSize.s48.toHeight,
-            Expanded(
+      child: Column(
+        children: [
+          TSize.s24.toHeight,
+          const ThemeWidget(),
+          TSize.s24.toHeight,
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: TPadding.p48),
+            child: Divider(),
+          ),
+          TSize.s48.toHeight,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: TPadding.p48),
               child: ListView.separated(
                 itemBuilder: (context, index) {
                   return BlocBuilder<PortfolioCubit, PortfolioState>(
@@ -86,8 +89,12 @@ class EndDrawerWidget extends StatelessWidget {
                 itemCount: context.read<PortfolioCubit>().state.headerData.length,
               ),
             ),
-          ],
-        ),
+          ),
+          const Padding(
+            padding: EdgeInsets.all(TPadding.p24),
+            child: ContactsIconsWidget(),
+          ),
+        ],
       ),
     );
   }
