@@ -16,12 +16,24 @@ class ContactsIconsWidget extends StatelessWidget {
           onPressed: () async {
             await Clipboard.setData(const ClipboardData(text: "naser_ebedo@icloud.com"));
 
-            // show snackbar
+            if (context.mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Email copied to clipboard')),
+              );
+            }
           },
           icon: const Icon(CupertinoIcons.mail),
         ),
         IconButton(
-          onPressed: () async => await Clipboard.setData(const ClipboardData(text: "+962795900291")),
+          onPressed: () async {
+            await Clipboard.setData(const ClipboardData(text: "+962795900291"));
+
+            if (context.mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Phone number copied to clipboard')),
+              );
+            }
+          },
           icon: const Icon(CupertinoIcons.phone),
         ),
         IconButton(

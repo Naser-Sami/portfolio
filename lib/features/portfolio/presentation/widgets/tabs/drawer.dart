@@ -90,10 +90,10 @@ class EndDrawerWidget extends StatelessWidget {
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(TPadding.p24),
-            child: ContactsIconsWidget(),
-          ),
+          // const Padding(
+          //   padding: EdgeInsets.all(TPadding.p24),
+          //   child: ContactsIconsWidget(),
+          // ),
         ],
       ),
     );

@@ -34,7 +34,7 @@ class PortfolioBodySmall extends StatelessWidget {
             ExperienceWidget(key: key[5]),
             TSize.s96.toHeight,
             ContactMeWidget(key: key[6]),
-            TSize.s96.toHeight,
+            // TSize.s96.toHeight,
           ],
         ),
       ),

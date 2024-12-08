@@ -9,24 +9,24 @@ class ThemeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final widthCondition = MediaQuery.of(context).size.width < 1000;
-    if (widthCondition) {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          for (int i = 0; i < ThemeStyle.values.length; i++)
-            IconButton(
-              tooltip: ThemeStyle.values[i].name.toCapitalized,
-              onPressed: () => context.read<ThemeCubit>().switchTheme(ThemeStyle.values[i]),
-              icon: SvgIconWidget(
-                name: '${ThemeStyle.values[i].name}_theme',
-                fit: BoxFit.cover,
-                color: Theme.of(context).colorScheme.onSurface,
-              ),
-            ),
-        ],
-      );
-    }
+    // final widthCondition = MediaQuery.of(context).size.width < 1100;
+    // if (widthCondition) {
+    //   return Row(
+    //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    //     children: [
+    //       for (int i = 0; i < ThemeStyle.values.length; i++)
+    //         IconButton(
+    //           tooltip: ThemeStyle.values[i].name.toCapitalized,
+    //           onPressed: () => context.read<ThemeCubit>().switchTheme(ThemeStyle.values[i]),
+    //           icon: SvgIconWidget(
+    //             name: '${ThemeStyle.values[i].name}_theme',
+    //             fit: BoxFit.cover,
+    //             color: Theme.of(context).colorScheme.onSurface,
+    //           ),
+    //         ),
+    //     ],
+    //   );
+    // }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
