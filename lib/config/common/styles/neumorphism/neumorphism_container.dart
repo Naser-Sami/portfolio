@@ -41,21 +41,22 @@ class NeumorphismContainer extends StatelessWidget {
       margin: margin(),
       decoration: BoxDecoration(
         color: surfaceColor ?? Theme.of(context).colorScheme.surface,
-        borderRadius: (shape == BoxShape.rectangle) ? borderRadius ?? BorderRadius.circular(30) : null,
+        borderRadius:
+            (shape == BoxShape.rectangle) ? borderRadius ?? BorderRadius.circular(30) : null,
         shape: shape,
         boxShadow: [
           // Right and Bottom
           BoxShadow(
             blurRadius: blurRadius,
             offset: -offset,
-            color: Theme.of(context).colorScheme.shadow.withOpacity(0.25),
+            color: Theme.of(context).colorScheme.shadow.withValues(alpha: 0.25),
             inset: inset,
           ),
           // Left and Top
           BoxShadow(
             blurRadius: blurRadius,
             offset: offset,
-            color: Theme.of(context).colorScheme.shadow.withOpacity(0.50),
+            color: Theme.of(context).colorScheme.shadow.withValues(alpha: 0.50),
             inset: inset,
           ),
         ],

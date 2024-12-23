@@ -49,11 +49,15 @@ class ExperienceWidget extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  i % 2 == 0 ? ExperienceCardWidget(index: i) : const Expanded(child: SizedBox.shrink()),
+                  i % 2 == 0
+                      ? ExperienceCardWidget(index: i)
+                      : const Expanded(child: SizedBox.shrink()),
                   TSize.s76.toWidth,
                   ExperienceLineWidget(index: i),
                   TSize.s76.toWidth,
-                  i % 2 != 0 ? ExperienceCardWidget(index: i) : const Expanded(child: SizedBox.shrink()),
+                  i % 2 != 0
+                      ? ExperienceCardWidget(index: i)
+                      : const Expanded(child: SizedBox.shrink()),
                 ],
               ),
           ],
@@ -89,6 +93,7 @@ class ExperienceLineWidget extends StatelessWidget {
           Container(
             width: 4,
             decoration: BoxDecoration(
+              boxShadow: [BoxShadow()],
               borderRadius: BorderRadius.only(
                 topLeft: radians(index == 0),
                 topRight: radians(index == 0),
@@ -157,7 +162,9 @@ class ExperienceCardWidget extends StatelessWidget {
                           textAlign: TextAlign.start,
                           style: smallScreen
                               ? textTheme.labelMedium?.apply(
-                                  color: context.isDarkMode ? DarkThemeColors.text : LightThemeColors.text,
+                                  color: context.isDarkMode
+                                      ? DarkThemeColors.text
+                                      : LightThemeColors.text,
                                 )
                               : textTheme.headlineMedium,
                           TextSpan(
@@ -167,7 +174,9 @@ class ExperienceCardWidget extends StatelessWidget {
                                 text: data.focusedTitle,
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: context.isDarkMode ? DarkThemeColors.green : LightThemeColors.green,
+                                  color: context.isDarkMode
+                                      ? DarkThemeColors.green
+                                      : LightThemeColors.green,
                                 ),
                               ),
                             ],
