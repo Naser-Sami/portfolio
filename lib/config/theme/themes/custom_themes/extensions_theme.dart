@@ -19,7 +19,8 @@ Iterable<ThemeExtension<dynamic>>? lightExtensions = <ThemeExtension<dynamic>>[
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
         colors: [
-          for (int x = 0; x < 105; x += 5) LightThemeColors.primaryContainer.withOpacity(x / 100),
+          for (int x = 0; x < 105; x += 5)
+            LightThemeColors.primaryContainer.withValues(alpha: x / 100),
         ],
       ),
     ),
@@ -42,7 +43,8 @@ Iterable<ThemeExtension<dynamic>>? darkExtensions = <ThemeExtension<dynamic>>[
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
         colors: [
-          for (int x = 0; x < 105; x += 5) DarkThemeColors.primaryContainer.withOpacity(x / 100),
+          for (int x = 0; x < 105; x += 5)
+            DarkThemeColors.primaryContainer.withValues(alpha: x / 100),
         ],
       ),
     ),

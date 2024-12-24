@@ -17,7 +17,8 @@ class ExperienceWidget extends StatelessWidget {
 
     if (widthCondition) {
       return Padding(
-        padding: EdgeInsets.symmetric(horizontal: widthCondition ? width * 0.10 : width * 0.15),
+        padding: EdgeInsets.symmetric(
+            horizontal: widthCondition ? width * 0.10 : width * 0.15),
         child: SizedBox(
           width: width,
           child: Column(
@@ -110,7 +111,10 @@ class ExperienceLineWidget extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(4.5),
                 child: CircleAvatar(
-                  backgroundColor: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.50),
+                  backgroundColor: Theme.of(context)
+                      .colorScheme
+                      .primaryContainer
+                      .withValues(alpha: 0.50),
                   child: const PngImageWidget(
                     name: 'brain',
                   ),
@@ -148,7 +152,8 @@ class ExperienceCardWidget extends StatelessWidget {
             highlightColor: Colors.transparent,
             hoverColor: Colors.transparent,
             onTap: () {},
-            onHover: (bool val) => context.read<PortfolioCubit>().onExperienceHover(data.id, val),
+            onHover: (bool val) =>
+                context.read<PortfolioCubit>().onExperienceHover(data.id, val),
             child: BlocBuilder<PortfolioCubit, PortfolioState>(
               builder: (context, state) {
                 return NeumorphismContainer(
@@ -186,15 +191,19 @@ class ExperienceCardWidget extends StatelessWidget {
                         TextWidget(
                           'Date: | ${data.date}',
                           style: smallScreen
-                              ? textTheme.labelSmall?.copyWith(fontWeight: FontWeight.w500)
-                              : textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w500),
+                              ? textTheme.labelSmall
+                                  ?.copyWith(fontWeight: FontWeight.w500)
+                              : textTheme.bodyMedium
+                                  ?.copyWith(fontWeight: FontWeight.w500),
                         ),
                         TSize.s08.toHeight,
                         Flexible(
                           child: SingleChildScrollView(
                             child: TextWidget(
                               data.description,
-                              style: smallScreen ? textTheme.labelSmall : textTheme.bodyMedium,
+                              style: smallScreen
+                                  ? textTheme.labelSmall
+                                  : textTheme.bodyMedium,
                               maxLines: 50,
                               overflow: TextOverflow.ellipsis,
                             ),

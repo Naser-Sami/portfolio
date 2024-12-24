@@ -10,7 +10,7 @@ ThemeData _darkTheme = ThemeData.dark(useMaterial3: true).copyWith(
   textButtonTheme: darkTextButtonTheme,
   extensions: darkExtensions,
   dividerTheme: darkDividerTheme,
-  dividerColor: DarkThemeColors.onBackground.withOpacity(0.25),
+  dividerColor: DarkThemeColors.onBackground.withValues(alpha: 0.25),
   // buttonTheme: const ButtonThemeData(
   //   splashColor: Colors.transparent,
   //   highlightColor: Colors.transparent,

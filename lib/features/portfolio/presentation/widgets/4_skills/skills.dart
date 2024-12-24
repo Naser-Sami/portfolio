@@ -16,7 +16,8 @@ class SkillsWidget extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: widthCondition ? width * 0.10 : width * 0.15),
+          padding: EdgeInsets.symmetric(
+              horizontal: widthCondition ? width * 0.10 : width * 0.15),
           child: const ProgressBarWidget(title: "Skills", titleEnd: true),
         ),
         Padding(
@@ -31,12 +32,19 @@ class SkillsWidget extends StatelessWidget {
                 (e) {
                   if (TDeviceUtils.isPhysicalDevice()) {
                     return Listener(
-                      onPointerUp: (event) => context.read<PortfolioCubit>().onSkillHover(e.id, false),
-                      onPointerDown: (event) => context.read<PortfolioCubit>().onSkillHover(e.id, true),
+                      onPointerUp: (event) =>
+                          context.read<PortfolioCubit>().onSkillHover(e.id, false),
+                      onPointerDown: (event) =>
+                          context.read<PortfolioCubit>().onSkillHover(e.id, true),
                       child: NeumorphismButton(
-                        width: 100,
+                        // width: 100,
                         isHovered: e.isHovered,
-                        surfaceColor: e.isHovered ? Theme.of(context).colorScheme.inversePrimary.withOpacity(0.80) : null,
+                        surfaceColor: e.isHovered
+                            ? Theme.of(context)
+                                .colorScheme
+                                .inversePrimary
+                                .withValues(alpha: 0.80)
+                            : null,
                         text: e.title,
                         onTap: () {},
                         // onHover: (bool val) => context.read<PortfolioCubit>().onSkillSHover(e.id, val),
@@ -44,12 +52,18 @@ class SkillsWidget extends StatelessWidget {
                     );
                   }
                   return NeumorphismButton(
-                    width: 100,
+                    // width: 100,
                     isHovered: e.isHovered,
-                    surfaceColor: e.isHovered ? Theme.of(context).colorScheme.inversePrimary.withOpacity(0.80) : null,
+                    surfaceColor: e.isHovered
+                        ? Theme.of(context)
+                            .colorScheme
+                            .inversePrimary
+                            .withValues(alpha: 0.80)
+                        : null,
                     text: e.title,
                     onTap: () {},
-                    onHover: (bool val) => context.read<PortfolioCubit>().onSkillHover(e.id, val),
+                    onHover: (bool val) =>
+                        context.read<PortfolioCubit>().onSkillHover(e.id, val),
                   );
                 },
               ).toList(),

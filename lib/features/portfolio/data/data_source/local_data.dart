@@ -39,8 +39,11 @@ class SkillsData {
 
 class CertificatesData {
   static List<String> certificates = [
-    'Flutter-Advanced-Course-Bloc-MVVM',
+    'flutter_development',
     'Flutter_Clean_Architecture_Certificate',
+    'animations',
+    'Flutter-Advanced-Course-Bloc-MVVM',
+    'dart_and_oop',
     'pioneers_academy_certificate_1',
     'pioneers_academy_certificate_2',
     'pioneers_academy_certificate_3',
@@ -69,7 +72,8 @@ class ProjectsData {
         ProjectsDataSubModel(
           id: 1,
           name: 'BEYE Website',
-          description: 'BEYE is a pioneering finch company specialized in providing intelligent business analytics solutions for the banking sector.',
+          description:
+              'BEYE is a pioneering finch company specialized in providing intelligent business analytics solutions for the banking sector.',
           gitHubLink: 'https://github.com/Naser-Sami',
           urlLink: 'https://www.beyegroup.com/',
           image: 'beye_website',
@@ -94,7 +98,8 @@ class ProjectsData {
         ProjectsDataSubModel(
           id: 4,
           name: 'Game Guru Club Manager',
-          description: 'A Flutter Web App for club managers to manage activities and reservations.',
+          description:
+              'A Flutter Web App for club managers to manage activities and reservations.',
           gitHubLink: 'https://github.com/Naser-Sami',
           urlLink: 'https://gameguru.com.sa/',
           image: 'game_guru_club',
@@ -117,7 +122,8 @@ class ProjectsData {
         ProjectsDataSubModel(
           id: 1,
           name: 'Game Guru Coach & Employee',
-          description: 'This is a mobile app for coaches and employees to manage activities and reservations.',
+          description:
+              'This is a mobile app for coaches and employees to manage activities and reservations.',
           gitHubLink: 'https://github.com/Naser-Sami',
           urlLink: '',
           image: 'GameGuru0',

@@ -4,26 +4,36 @@ class SkillsService implements ISkillsService {
   @override
   List<SkillsData> createInitialData() {
     List<SkillsData> data = [];
+
     List<String> skills = [
-      'Mobile Dev',
-      'Web Dev',
       'Flutter',
       'Dart',
-      'Python',
       'C#',
-      '.Net',
-      'Sql',
+      'ASP.Net',
+      'Python',
+      'SQL',
       'BloC',
       'Provider',
-      'Git',
-      'GitHub',
       'Dio',
-      'Rest API\'s',
-      'Go-Routes',
-      'Animations',
-      'OOP',
+      'Critical Thinking',
+      'Problem Solving',
+      'Analysis',
+      'Design',
+      'Leadership',
+      'Logical Thinking',
       'DSA',
-      'S.O.L.I.D'
+      'OOP',
+      'Animations',
+      'Collaboration',
+      'Git',
+      'Organization',
+      'GitHub',
+      'Rest API/’s',
+      'S.O.L.I.D',
+      'Responsive Design',
+      'Mobile Development',
+      'Web Development',
+      'Go-Routes'
     ];
 
     for (int x = 0; x < skills.length; x++) {

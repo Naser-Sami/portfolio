@@ -30,11 +30,6 @@ class ThemeCubit extends Cubit<ThemeMode> {
         await box.put('theme', 'dark');
         emit(ThemeMode.dark);
         break;
-      default:
-        initialValue = ThemeStyle.system;
-        await box.put('theme', 'system');
-        emit(ThemeMode.system);
-        break;
     }
   }
 

@@ -10,7 +10,7 @@ ThemeData _lightTheme = ThemeData.light(useMaterial3: true).copyWith(
   scaffoldBackgroundColor: LightThemeColors.scaffoldBackground,
   extensions: lightExtensions,
   dividerTheme: lightDividerTheme,
-  dividerColor: LightThemeColors.onBackground.withOpacity(0.25),
+  dividerColor: LightThemeColors.onBackground.withValues(alpha: 0.25),
 );
 
 ThemeData get lightTheme => _lightTheme;
