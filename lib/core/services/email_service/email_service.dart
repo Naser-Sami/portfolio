@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:http/http.dart' as http;
 
 class EmailService {
@@ -26,9 +27,9 @@ class EmailService {
     );
 
     if (response.statusCode == 200) {
-      print('Email sent successfully');
+      log('Email sent successfully');
     } else {
-      print('Failed to send email: ${response.body}');
+      log('Failed to send email: ${response.body}');
     }
   }
   // static void sendEmail(String name, String email, String message) async {
