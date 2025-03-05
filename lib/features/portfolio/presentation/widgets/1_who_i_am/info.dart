@@ -44,10 +44,12 @@ class WhoIAmInfo extends StatelessWidget {
         ),
         TSize.s24.toHeight,
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * (smallScreen ? 0.10 : 0.20)),
+          padding: EdgeInsets.symmetric(
+              horizontal:
+                  MediaQuery.of(context).size.width * (smallScreen ? 0.10 : 0.20)),
           child: const TextWidget(
               textAlign: TextAlign.center,
-              " As a dedicated Flutter developer with 3 years of hands-on experience, I am driven by challenges and continuously strive to advance my skills in software development. I am actively expanding my expertise in C#, .NET, SQL, and Python, with a strong commitment to learning and growth. I am seeking an opportunity within an innovative organization where I can contribute to impactful projects, collaborate with skilled professionals, and further refine my knowledge while sharing my insights to foster a culture of continuous improvement in technology."),
+              " As a dedicated Flutter developer with 3 years adn half of hands-on experience, I am driven by challenges and continuously strive to advance my skills in software development. I am actively expanding my expertise in C#, .NET, SQL, and Python, with a strong commitment to learning and growth. I am seeking an opportunity within an innovative organization where I can contribute to impactful projects, collaborate with skilled professionals, and further refine my knowledge while sharing my insights to foster a culture of continuous improvement in technology."),
         ),
         TSize.s45.toHeight,
         Padding(
@@ -63,7 +65,9 @@ class WhoIAmInfo extends StatelessWidget {
                       return NeumorphismButton(
                         isHovered: isHovered,
                         text: 'Learn More',
-                        onTap: () => context.read<PortfolioCubit>().scrollToSection(1), // widgetId 1 = AboutMe
+                        onTap: () => context
+                            .read<PortfolioCubit>()
+                            .scrollToSection(1), // widgetId 1 = AboutMe
                         onHover: (bool val) {
                           setState(() {
                             isHovered = val;
@@ -83,7 +87,9 @@ class WhoIAmInfo extends StatelessWidget {
                       return NeumorphismButton(
                         isHovered: isHovered,
                         text: 'Contact me',
-                        onTap: () => context.read<PortfolioCubit>().scrollToSection(6), // widgetId 6 = ContactMe
+                        onTap: () => context
+                            .read<PortfolioCubit>()
+                            .scrollToSection(6), // widgetId 6 = ContactMe
                         onHover: (bool val) {
                           setState(() {
                             isHovered = val;

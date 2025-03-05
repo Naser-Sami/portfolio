@@ -12,7 +12,8 @@ class AboutMeWidget extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: widthCondition ? width * 0.10 : width * 0.15),
+      padding:
+          EdgeInsets.symmetric(horizontal: widthCondition ? width * 0.10 : width * 0.15),
       child: widthCondition
           ? Column(
               children: [
@@ -38,14 +39,17 @@ class AboutMeImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 350,
-      width: MediaQuery.of(context).size.width,
+      height: 380,
+      width: 380,
       child: NeumorphismContainer(
         inset: false,
         borderRadius: BorderRadius.circular(30),
-        child: const PngImageWidget(
-          name: 'image-removebg-preview2',
-          fit: BoxFit.contain,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+          child: const JpegImageWidget(
+            name: 'naser_sami_1',
+            fit: BoxFit.fill,
+          ),
         ),
       ),
     );
@@ -60,16 +64,22 @@ class AboutMeInfoWidget extends StatelessWidget {
     final widthCondition = MediaQuery.of(context).size.width < 1100;
 
     return Column(
-      crossAxisAlignment: widthCondition ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+      crossAxisAlignment:
+          widthCondition ? CrossAxisAlignment.center : CrossAxisAlignment.start,
       children: [
         TextWidget(
           "About Me",
           style: Theme.of(context).textTheme.titleLarge,
         ),
         TSize.s32.toHeight,
-        TextWidget(
-          textAlign: widthCondition ? TextAlign.center : TextAlign.start,
-          "I am actively seeking opportunities to apply my acquired skills and knowledge to real-world projects. I am currently also student studying Artificial Intelligence and Machine Learning. Actively seeking opportunities to apply my skills and knowledge to real-world projects and contribute to the advancement of the industry.",
+        const TextWidget(
+          textAlign: TextAlign.start,
+          """I’m a dedicated Mobile and Web Software Developer with over 3.5 years of experience in building innovative, cross-platform applications using Flutter and Dart.
+I specialize in creating efficient, scalable, and user-friendly solutions that drive business growth and enhance user experiences.
+My expertise spans Clean Architecture, SOLID Principles, and advanced Flutter design patterns.
+I’m passionate about solving complex problems and delivering high-quality, well-documented software. 
+My journey in tech is fueled by a commitment to continuous learning and staying ahead of industry trends. 
+Currently, I’m expanding my skills in C#, .NET, SQL, and Python.""",
         ),
       ],
     );

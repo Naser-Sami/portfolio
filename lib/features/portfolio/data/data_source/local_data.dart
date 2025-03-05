@@ -38,12 +38,21 @@ class SkillsData {
 }
 
 class CertificatesData {
+  static List<String> certificatesTitles = [
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+  ];
   static List<String> certificates = [
-    'flutter_development',
-    'Flutter_Clean_Architecture_Certificate',
-    'animations',
-    'Flutter-Advanced-Course-Bloc-MVVM',
-    'dart_and_oop',
     'pioneers_academy_certificate_1',
     'pioneers_academy_certificate_2',
     'pioneers_academy_certificate_3',
@@ -51,6 +60,11 @@ class CertificatesData {
     'pioneers_academy_certificate_5',
     'pioneers_academy_certificate_6',
     'pioneers_academy_certificate_7',
+    'flutter_development',
+    'Flutter_Clean_Architecture_Certificate',
+    'animations',
+    'Flutter-Advanced-Course-Bloc-MVVM',
+    'dart_and_oop',
   ];
 }
 

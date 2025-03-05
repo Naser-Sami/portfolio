@@ -1,4 +1,6 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:vertical_card_pager/vertical_card_pager.dart';
 
 import '/config/_config.dart';
 import '/features/_features.dart';
@@ -29,19 +31,42 @@ class CertificateSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final widthCondition = MediaQuery.of(context).size.width < 900;
+    final widthCondition = MediaQuery.of(context).size.width < 760;
 
-    return ConstrainedBox(
-      constraints: BoxConstraints(maxHeight: widthCondition ? 350 : 500),
-      child: CarouselView(
-        itemExtent: widthCondition ? 400 : 750,
-        padding:
-            widthCondition ? null : const EdgeInsets.symmetric(horizontal: TPadding.p16),
-        children: CertificatesData.certificates.map((certificate) {
-          return CertificateCard(certificate: certificate);
+    if (widthCondition) {
+      return SizedBox(
+        height: 700,
+        child: VerticalCardPager(
+          width: MediaQuery.of(context).size.width * 0.70,
+          titles: CertificatesData.certificatesTitles,
+          images: CertificatesData.certificates.map((certificate) {
+            return CertificateCard(certificate: certificate);
+          }).toList(), // required
+          onPageChanged: (page) {
+            // optional
+          },
+          onSelectedItem: (index) {
+            // optional
+          },
+          initialPage: 8,
+          align: ALIGN.CENTER,
+          physics: const ClampingScrollPhysics(),
+        ),
+      );
+    } else {
+      return CarouselSlider(
+        items: CertificatesData.certificates.map((certificate) {
+          return SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: CertificateCard(certificate: certificate));
         }).toList(),
-      ),
-    );
+        options: CarouselOptions(
+          height: MediaQuery.of(context).size.width > 1100 ? 540 : 400,
+          enlargeCenterPage: true,
+          initialPage: 8,
+        ),
+      );
+    }
   }
 }
 
