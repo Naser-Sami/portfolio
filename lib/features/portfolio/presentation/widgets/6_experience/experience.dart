@@ -94,7 +94,7 @@ class ExperienceLineWidget extends StatelessWidget {
           Container(
             width: 4,
             decoration: BoxDecoration(
-              boxShadow: [BoxShadow()],
+              boxShadow: const [BoxShadow()],
               borderRadius: BorderRadius.only(
                 topLeft: radians(index == 0),
                 topRight: radians(index == 0),
@@ -160,56 +160,69 @@ class ExperienceCardWidget extends StatelessWidget {
                   inset: state.experienceData[index].isHovered,
                   child: Padding(
                     padding: EdgeInsets.all(smallScreen ? TPadding.p16 : TPadding.p32),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text.rich(
-                          textAlign: TextAlign.start,
-                          style: smallScreen
-                              ? textTheme.labelMedium?.apply(
-                                  color: context.isDarkMode
-                                      ? DarkThemeColors.text
-                                      : LightThemeColors.text,
-                                )
-                              : textTheme.headlineMedium,
-                          TextSpan(
-                            children: [
-                              TextSpan(text: data.title),
-                              TextSpan(
-                                text: data.focusedTitle,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: context.isDarkMode
-                                      ? DarkThemeColors.green
-                                      : LightThemeColors.green,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text.rich(
+                            textAlign: TextAlign.start,
+                            style: smallScreen
+                                ? textTheme.labelMedium?.apply(
+                                    color: context.isDarkMode
+                                        ? DarkThemeColors.text
+                                        : LightThemeColors.text,
+                                  )
+                                : textTheme.headlineMedium,
+                            TextSpan(
+                              children: [
+                                TextSpan(text: data.title),
+                                TextSpan(
+                                  text: data.focusedTitle,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: context.isDarkMode
+                                        ? DarkThemeColors.green
+                                        : LightThemeColors.green,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        TSize.s04.toHeight,
-                        TextWidget(
-                          'Date: | ${data.date}',
-                          style: smallScreen
-                              ? textTheme.labelSmall
-                                  ?.copyWith(fontWeight: FontWeight.w500)
-                              : textTheme.bodyMedium
-                                  ?.copyWith(fontWeight: FontWeight.w500),
-                        ),
-                        TSize.s08.toHeight,
-                        Flexible(
-                          child: SingleChildScrollView(
-                            child: TextWidget(
-                              data.description,
-                              style: smallScreen
-                                  ? textTheme.labelSmall
-                                  : textTheme.bodyMedium,
-                              maxLines: 50,
-                              overflow: TextOverflow.ellipsis,
+                              ],
                             ),
                           ),
-                        ),
-                      ],
+                          TSize.s16.toHeight,
+                          TextWidget(
+                            'Date: | ${data.date}',
+                            style: smallScreen
+                                ? textTheme.labelSmall
+                                    ?.copyWith(fontWeight: FontWeight.w500)
+                                : textTheme.bodyMedium
+                                    ?.copyWith(fontWeight: FontWeight.w500),
+                          ),
+                          TSize.s08.toHeight,
+                          Column(
+                              children: data.description
+                                  .map(
+                                    (e) => Text.rich(
+                                      textAlign: TextAlign.start,
+                                      TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: e['title'],
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .titleMedium
+                                                ?.copyWith(fontWeight: FontWeight.bold),
+                                          ),
+                                          TextSpan(
+                                            text: "${e['description']}\n",
+                                            style: Theme.of(context).textTheme.bodyMedium,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                  .toList()),
+                        ],
+                      ),
                     ),
                   ),
                 );

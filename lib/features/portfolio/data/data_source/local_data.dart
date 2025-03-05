@@ -177,7 +177,7 @@ class ExperienceData {
   final int id;
   final String title;
   final String focusedTitle;
-  final String description;
+  final List<Map<String, String>> description;
   final String date;
   final bool isHovered;
 
@@ -194,7 +194,7 @@ class ExperienceData {
     int? id,
     String? title,
     String? focusedTitle,
-    String? description,
+    List<Map<String, String>>? description,
     String? date,
     bool? isHovered,
   }) {
